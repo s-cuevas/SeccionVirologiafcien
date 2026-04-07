@@ -52,10 +52,10 @@
 </head>
 <body class="bg-surface font-body text-on-surface">
 
-<nav class="fixed top-0 w-full z-50 glass-header shadow-sm">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <div class="text-2xl font-black font-headline tracking-tighter text-primary">
-             <a href="index.html" class="flex-shrink-0">
+<nav class="fixed top-0 w-full z-50 glass-header shadow-sm h-28 flex items-center">
+    <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+        <div class="flex-shrink-0">
+             <a href="index.html">
                 <img alt="Virología Logo" class="h-20 w-auto object-contain" src="https://raw.githubusercontent.com/s-cuevas/SeccionVirologiafcien/main/a1115b78-16f1-444c-912f-ca878fb95f46.jfif"/>
             </a>
         </div>
@@ -68,13 +68,13 @@
         </div>
         <div class="flex items-center gap-4">
             <button class="px-5 py-2 rounded-DEFAULT font-headline text-sm font-semibold uppercase tracking-wider text-primary hover:bg-surface-container-high transition-all active:scale-95">Login</button>
-            <a href="gestion.html" class="px-5 py-2 rounded-DEFAULT bg-primary text-on-primary font-headline text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-95">Gestión</a>
+            <a href="gestion.html" class="px-5 py-2 rounded-DEFAULT bg-primary text-on-primary font-headline text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-95 text-center">Gestión</a>
         </div>
     </div>
 </nav>
 
-<main>
-    <section class="relative h-[600px] flex items-center overflow-hidden pt-20">
+<main class="pt-44">
+    <section class="relative h-[700px] flex items-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img class="w-full h-full object-cover opacity-90 scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuQ1utEhVlLi6w6UfEOIJ9jRgLpXf3vhbVcv1tdVLaehjFNo39P-cTTHpJsKhj86975Xxvbxs1OpacnEqiXosSoTf7SCqY3b64B7hY4RJmpI78kCIagvjlNTj6ReAhG-QZgRPY2n4BOznSE1F7FUg0i9iW0FZr83c7TFgxIAKKraiPmWNF8M118ZO-U8VsYdQ2y0NBGZWlusOb7Tu0B-NzTTA8x01QQ2GrzuzjaNUli4R3bVnY41iZ5swrNTLt0ZxYEBQTP4hVCjs"/>
             <div class="absolute inset-0 bg-gradient-to-r from-surface-bright via-surface-bright/40 to-transparent"></div>
@@ -85,6 +85,9 @@
                 <h1 class="text-6xl md:text-7xl font-headline font-black tracking-tighter text-on-background leading-[0.95] mb-8">
                     La ciencia que <span class="text-primary italic">descifra</span> la vida.
                 </h1>
+                <p class="text-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed">
+                    Explorando los límites de la biología molecular para comprender los patógenos que desafían la salud global y el equilibrio de los ecosistemas.
+                </p>
                 <div class="flex flex-wrap gap-4">
                     <a href="investigacion.html" class="px-8 py-4 bg-primary text-on-primary rounded-DEFAULT font-bold text-base hover:opacity-90 transition-all">Explorar Investigación</a>
                 </div>
@@ -100,7 +103,7 @@
                     <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center mb-6 group-hover:bg-on-primary/20">
                         <span class="material-symbols-outlined text-on-primary-fixed-variant group-hover:text-on-primary">group</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline mb-2 group-hover:text-on-primary text-on-background">Cuerpo Docente</h3>
+                    <h3 class="text-xl font-bold font-headline mb-2 group-hover:text-on-primary">Cuerpo Docente</h3>
                     <p class="text-sm text-on-surface-variant group-hover:text-on-primary/80">Conozca a los investigadores y académicos que lideran nuestra sección.</p>
                 </a>
 
@@ -108,7 +111,7 @@
                     <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-6 group-hover:bg-on-primary/20">
                         <span class="material-symbols-outlined text-on-secondary-container group-hover:text-on-primary">science</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline mb-2 group-hover:text-on-primary text-on-background">Investigación</h3>
+                    <h3 class="text-xl font-bold font-headline mb-2 group-hover:text-on-primary">Investigación</h3>
                     <p class="text-sm text-on-surface-variant group-hover:text-on-primary/80">Líneas de trabajo, proyectos financiados y laboratorios especializados.</p>
                 </a>
 
@@ -116,7 +119,7 @@
                     <div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center mb-6 group-hover:bg-on-primary/20">
                         <span class="material-symbols-outlined text-on-tertiary-container group-hover:text-on-primary">school</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline mb-2 group-hover:text-on-primary text-on-background">Docencia</h3>
+                    <h3 class="text-xl font-bold font-headline mb-2 group-hover:text-on-primary">Docencia</h3>
                     <p class="text-sm text-on-surface-variant group-hover:text-on-primary/80">Cursos de grado, posgrado y oportunidades de formación académica.</p>
                 </a>
 
@@ -124,35 +127,10 @@
                     <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center mb-6 group-hover:bg-on-primary/20">
                         <span class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary">article</span>
                     </div>
-                    <h3 class="text-xl font-bold font-headline mb-2 group-hover:text-on-primary text-on-background">Publicaciones</h3>
+                    <h3 class="text-xl font-bold font-headline mb-2 group-hover:text-on-primary">Publicaciones</h3>
                     <p class="text-sm text-on-surface-variant group-hover:text-on-primary/80">Archivo de artículos científicos y contribuciones de impacto internacional.</p>
                 </a>
 
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-surface overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-16">
-                <div class="flex-1 relative">
-                    <div class="w-full aspect-square rounded-xl bg-surface-container-high overflow-hidden">
-                        <img class="w-full h-full object-cover mix-blend-multiply opacity-80" src="https://th.bing.com/th/id/R.a0a11d4208602e03742154a9ad34a975?rik=UdZYU5qQedKmYA&riu=http%3a%2f%2flicbq.fcien.edu.uy%2fimg%2fFachada+2.jpg&ehk=5lOp%2bSeZV%2btiAHicsBGQd8dz7aUqe5BqW1hHVCo9%2fxQ%3d&risl=&pid=ImgRaw&r=0"/>
-                    </div>
-                    <div class="absolute -bottom-6 -right-6 p-10 bg-primary rounded-lg text-on-primary max-w-xs shadow-xl">
-                        <p class="font-headline font-bold text-3xl mb-2">25+</p>
-                        <p class="text-sm opacity-80 uppercase tracking-widest font-semibold">Años de excelencia en investigación científica</p>
-                    </div>
-                </div>
-                <div class="flex-1">
-                    <h2 class="text-4xl font-headline font-black tracking-tight text-on-background mb-8">Nuestra Misión</h2>
-                    <p class="text-lg text-on-surface-variant leading-relaxed mb-6">
-                        La Sección Virología tiene como propósito fundamental el avance del conocimiento científico sobre los agentes virales que afectan la vida humana, animal y vegetal.
-                    </p>
-                    <p class="text-lg text-on-surface-variant leading-relaxed mb-8">
-                        A través de la integración de la investigación básica y aplicada, la formación de recursos humanos de alto nivel y el vínculo con la sociedad.
-                    </p>
-                </div>
             </div>
         </div>
     </section>
