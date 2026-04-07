@@ -1,156 +1,45 @@
-<!DOCTYPE html>
-<html class="light" lang="es">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Gestión Interna | Sección Virología</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"/>
-    <script id="tailwind-config">
-      tailwind.config = { theme: { extend: { colors: { "primary": "#0d631b", "surface": "#f6faf6" } } } }
-    </script>
-    <style>
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        .glass-header { background: rgba(246, 250, 246, 0.7); backdrop-filter: blur(20px); }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-    </style>
-</head>
-<body class="bg-surface text-slate-800 font-body">
+<main class="pt-44 pb-20 max-w-5xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row gap-12">
+        <aside class="w-full md:w-64 space-y-2">
+            <button onclick="switchTab('publicaciones')" id="tab-pub-btn" class="sidebar-link active w-full flex items-center gap-3 p-4 rounded-2xl font-bold text-sm bg-primary text-white">
+                <span class="material-symbols-outlined">article</span> Publicaciones
+            </button>
+            <button onclick="switchTab('tutorias')" id="tab-tut-btn" class="sidebar-link w-full flex items-center gap-3 p-4 rounded-2xl font-bold text-sm text-on-surface-variant hover:bg-emerald-900/5">
+                <span class="material-symbols-outlined">assignment</span> Tutorías
+            </button>
+        </aside>
 
-    <div id="login-container" class="fixed inset-0 z-[100] bg-emerald-900 flex items-center justify-center p-6 text-center">
-        <div class="bg-white p-10 rounded-[3rem] shadow-2xl max-w-md w-full">
-            <img class="h-16 mx-auto mb-6" src="https://raw.githubusercontent.com/s-cuevas/SeccionVirologiafcien/main/a1115b78-16f1-444c-912f-ca878fb95f46.jfif" alt="Logo">
-            <h2 class="text-3xl font-black text-primary mb-6 uppercase tracking-tighter italic">Acceso Docente</h2>
-            <div class="space-y-4">
-                <input type="text" id="user-field" placeholder="Usuario" class="w-full bg-slate-100 border-none rounded-2xl p-4 text-center font-bold outline-none">
-                <input type="password" id="pass-field" placeholder="Contraseña" class="w-full bg-slate-100 border-none rounded-2xl p-4 text-center font-bold outline-none">
-                <button onclick="attemptLogin()" class="w-full bg-primary text-white py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:opacity-95 transition-all">
-                    Entrar al Panel
-                </button>
+        <div class="flex-grow">
+            <div id="view-publicaciones" class="tab-content active">
+                <h1 class="text-4xl font-black text-primary mb-6 uppercase tracking-tighter italic">Nueva Publicación</h1>
+                <form onsubmit="enviarDatos(event, 'Publicaciones')" class="bg-white p-8 rounded-[2.5rem] border border-emerald-900/10 shadow-sm space-y-6">
+                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-full font-black uppercase text-xs">Publicar Artículo</button>
+                </form>
             </div>
-            <p id="auth-error" class="text-red-600 text-xs font-bold mt-4 hidden">Credenciales incorrectas.</p>
-            <a href="index.html" class="block mt-6 text-[10px] uppercase font-black text-primary/40 hover:text-primary transition-colors tracking-widest">Volver al sitio público</a>
+
+            <div id="view-tutorias" class="tab-content hidden">
+                <h1 class="text-4xl font-black text-primary mb-6 uppercase tracking-tighter italic">Nueva Tutoría</h1>
+                <form onsubmit="enviarDatos(event, 'Tutorias')" class="bg-white p-8 rounded-[2.5rem] border border-emerald-900/10 shadow-sm space-y-6">
+                    <input type="text" name="titulo" placeholder="Título de la Tesis" class="w-full bg-slate-50 border-none rounded-xl p-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <select name="tutor" class="w-full bg-slate-50 border-none rounded-xl p-4">
+                            <option>Dra. Adriana Delfraro</option>
+                            <option>Dra. Sandra Frabasile</option>
+                            </select>
+                        <select name="cotutor" class="w-full bg-slate-50 border-none rounded-xl p-4">
+                            <option value="">Sin Cotutor</option>
+                            <option>Dra. Natalia Ramos</option>
+                            </select>
+                    </div>
+                    <input type="text" name="estudiante" placeholder="Nombre del Estudiante" class="w-full bg-slate-50 border-none rounded-xl p-4">
+                    <select name="nivel" class="w-full bg-slate-50 border-none rounded-xl p-4">
+                        <option>Grado</option>
+                        <option>Maestría (PEDECIBA)</option>
+                        <option>Doctorado (PEDECIBA)</option>
+                    </select>
+                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-full font-black uppercase text-xs">Registrar Tutoría</button>
+                </form>
+            </div>
         </div>
     </div>
-
-    <div id="admin-panel" class="hidden">
-        <nav class="fixed top-0 w-full z-50 glass-header shadow-sm h-28 flex items-center">
-            <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
-                <div class="flex items-center gap-4">
-                    <img class="h-16" src="https://raw.githubusercontent.com/s-cuevas/SeccionVirologiafcien/main/a1115b78-16f1-444c-912f-ca878fb95f46.jfif">
-                    <span class="text-primary font-black uppercase tracking-widest text-xs hidden md:block">Gestión Sección Virología</span>
-                </div>
-                <button onclick="processLogout()" class="px-6 py-2 rounded-xl bg-primary text-white font-bold text-xs uppercase tracking-widest">Cerrar Sesión</button>
-            </div>
-        </nav>
-
-        <main class="pt-44 pb-20 max-w-4xl mx-auto px-6">
-            <div class="mb-12">
-                <h1 class="text-5xl font-black text-primary uppercase tracking-tighter italic">Nueva Publicación</h1>
-                <p class="text-slate-500 mt-2">Los cambios se verán reflejados automáticamente en la web.</p>
-            </div>
-            
-            <form id="pub-form" onsubmit="enviarAlSheet(event)" class="bg-white p-10 rounded-[3rem] border border-emerald-900/10 shadow-sm space-y-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="md:col-span-2">
-                        <label class="text-[10px] font-black uppercase text-primary tracking-widest mb-2 block italic">Autores (Apellido N, Apellido M...)</label>
-                        <input type="text" name="autores" required placeholder="Ej: Ramos N, Mirazo S, Arbiza J..." class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all">
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="text-[10px] font-black uppercase text-primary tracking-widest mb-2 block italic">Título del Trabajo</label>
-                        <input type="text" name="titulo" required class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all">
-                    </div>
-                    <div>
-                        <label class="text-[10px] font-black uppercase text-primary tracking-widest mb-2 block italic">Revista / Editorial</label>
-                        <input type="text" name="revista" required class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all">
-                    </div>
-                    <div>
-                        <label class="text-[10px] font-black uppercase text-primary tracking-widest mb-2 block italic">Año</label>
-                        <input type="number" name="anio" value="2026" required class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all">
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="text-[10px] font-black uppercase text-primary tracking-widest mb-2 block italic">Enlace DOI o URL completa</label>
-                        <input type="url" name="enlace" required placeholder="https://doi.org/..." class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all">
-                    </div>
-                </div>
-                <div class="pt-4">
-                    <button type="submit" id="btn-submit" class="w-full bg-primary text-white py-5 rounded-full font-black uppercase text-xs tracking-widest shadow-xl hover:scale-[1.01] active:scale-95 transition-all">
-                        Publicar en la Web
-                    </button>
-                </div>
-            </form>
-        </main>
-    </div>
-
-    <script>
-        const AUTH = { user: "virologia", pass: "fcien2026" };
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby8fLW2Q3BeJLhgXhj2SFJ_rAN5ayaR-MIu42XL8EmYHbhi7_2bIhwaXAmNwHPfS1Dj/exec';
-
-        // Al cargar la página, verificamos si ya existe sesión activa
-        window.onload = () => {
-            if (sessionStorage.getItem('viro_auth') === 'true') {
-                showPanel();
-            }
-        };
-
-        function attemptLogin() {
-            const u = document.getElementById('user-field').value;
-            const p = document.getElementById('pass-field').value;
-            const err = document.getElementById('auth-error');
-
-            if (u === AUTH.user && p === AUTH.pass) {
-                sessionStorage.setItem('viro_auth', 'true');
-                showPanel();
-            } else {
-                err.classList.remove('hidden');
-                document.getElementById('pass-field').value = "";
-            }
-        }
-
-        function showPanel() {
-            document.getElementById('login-container').classList.add('hidden');
-            document.getElementById('admin-panel').classList.remove('hidden');
-        }
-
-        async function enviarAlSheet(e) {
-            e.preventDefault();
-            const btn = document.getElementById('btn-submit');
-            btn.innerText = "ENVIANDO DATOS...";
-            btn.disabled = true;
-
-            const form = e.target;
-            const datos = {
-                autores: form.autores.value,
-                titulo: form.titulo.value,
-                revista: form.revista.value,
-                anio: form.anio.value,
-                enlace: form.enlace.value
-            };
-
-            try {
-                // Envío directo al Apps Script de Google
-                await fetch(SCRIPT_URL, { 
-                    method: 'POST', 
-                    mode: 'no-cors', 
-                    body: JSON.stringify(datos) 
-                });
-                
-                alert("¡Éxito! La publicación se agregó al Google Sheet correctamente.");
-                form.reset();
-            } catch (err) {
-                alert("Hubo un error en la conexión. Intenta nuevamente.");
-            } finally {
-                btn.innerText = "Publicar en la Web";
-                btn.disabled = false;
-            }
-        }
-
-        function processLogout() {
-            sessionStorage.clear();
-            window.location.reload();
-        }
-    </script>
-</body>
-</html>
+</main>
