@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Docencia | Sección Virología</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d631b",
+                        "surface": "#f6faf6",
+                        "on-surface-variant": "#40493d",
+                        "surface-bright": "#f6faf6",
+                        "tertiary-container": "#2f7b5e",
+                        "on-tertiary-container": "#c3ffe2",
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem" }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-header { background: rgba(246, 250, 246, 0.7); backdrop-filter: blur(20px); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active { 
+            border-bottom: 3px solid #0d631b;
+            color: #0d631b;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body">
+
+    <nav class="fixed top-0 w-full z-50 glass-header shadow-sm h-28 flex items-center">
+        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+            <a href="index.html" class="flex-shrink-0">
+                <img alt="Virología Logo" class="h-20 w-auto object-contain" src="https://raw.githubusercontent.com/s-cuevas/SeccionVirologiafcien/main/a1115b78-16f1-444c-912f-ca878fb95f46.jfif"/>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="index.html">Inicio</a>
+                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="integrantes.html">Integrantes</a>
+                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="investigacion.html">Investigación</a>
+                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-primary border-b-2 border-primary pb-1" href="docencia.html">Docencia</a>
+                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="publicaciones.html">Publicaciones</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="px-5 py-2 rounded-DEFAULT font-headline text-sm font-semibold uppercase tracking-wider text-primary hover:bg-surface-container-high transition-all active:scale-95">Login</button>
+                <a href="gestion.html" class="px-5 py-2 rounded-DEFAULT bg-primary text-on-primary font-headline text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-95 text-center">Gestión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-44 pb-20 max-w-7xl mx-auto px-6">
+        
+        <header class="mb-16 text-center md:text-left">
+            <span class="inline-block px-4 py-1.5 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold tracking-widest uppercase mb-4">Formación de Grado y Posgrado</span>
+            <h1 class="text-5xl font-black font-headline tracking-tighter text-primary mb-4">Oferta Académica</h1>
+            <p class="text-on-surface-variant max-w-3xl text-lg">
+                La Sección Virología es responsable de la formación de recursos humanos en virología molecular para las licenciaturas en Ciencias Biológicas y Bioquímica, así como a nivel de posgrado (PEDECIBA).
+            </p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+            
+            <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-emerald-900/5 flex flex-col hover:shadow-lg transition-all">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
+                        <span class="material-symbols-outlined">menu_book</span>
+                    </div>
+                    <span class="text-[10px] font-black bg-emerald-900 text-white px-3 py-1 rounded-full uppercase">5 Créditos</span>
+                </div>
+                <h3 class="text-2xl font-black text-on-background leading-tight mb-4">Virología Módulo 1</h3>
+                <p class="text-sm text-on-surface-variant flex-grow mb-6 leading-relaxed">
+                    Conocimiento general y actualizado sobre virus y la disciplina. Abarca diversidad, evolución, prevención y control de infecciones virales.
+                </p>
+                <a href="#" class="text-sm font-bold text-primary flex items-center gap-2 hover:gap-4 transition-all">
+                    Ver Programa PDF <span class="material-symbols-outlined text-sm">download</span>
+                </a>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-emerald-900/5 flex flex-col hover:shadow-lg transition-all">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
+                        <span class="material-symbols-outlined">biotech</span>
+                    </div>
+                    <span class="text-[10px] font-black bg-emerald-900 text-white px-3 py-1 rounded-full uppercase">7 Créditos</span>
+                </div>
+                <h3 class="text-2xl font-black text-on-background leading-tight mb-4">Virología Módulo 2</h3>
+                <p class="text-sm text-on-surface-variant flex-grow mb-6 leading-relaxed">
+                    Conocimientos avanzados: patógenos animales y vegetales, virus gigantes, eco-epidemiología y herramientas moleculares biotecnológicas.
+                </p>
+                <a href="#" class="text-sm font-bold text-primary flex items-center gap-2 hover:gap-4 transition-all">
+                    Ver Programa PDF <span class="material-symbols-outlined text-sm">download</span>
+                </a>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-emerald-900/5 flex flex-col hover:shadow-lg transition-all">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
+                        <span class="material-symbols-outlined">science</span>
+                    </div>
+                    <span class="text-[10px] font-black bg-tertiary-container text-white px-3 py-1 rounded-full uppercase">Posgrado</span>
+                </div>
+                <h3 class="text-2xl font-black text-on-background leading-tight mb-4">Principios de Virología</h3>
+                <p class="text-sm text-on-surface-variant flex-grow mb-6 leading-relaxed">
+                    Curso de posgrado enfocado en virus animales. Diferenciación de patógenos, interacción celular, multiplicación y variabilidad evolutiva.
+                </p>
+                <a href="#" class="text-sm font-bold text-primary flex items-center gap-2 hover:gap-4 transition-all">
+                    Ver Programa PDF <span class="material-symbols-outlined text-sm">download</span>
+                </a>
+            </div>
+        </div>
+
+        <section class="mb-24">
+            <h2 class="text-2xl font-bold font-headline mb-8 pb-2 border-b-2 border-primary/20 inline-block text-primary">Cursos Específicos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-surface-container-low p-6 rounded-2xl flex items-center gap-4 border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-primary">vaccines</span>
+                    <div>
+                        <p class="font-bold text-on-background">Curso Antivirales</p>
+                        <p class="text-xs text-on-surface-variant leading-tight">Estrategias de identificación, diseño y evaluación de candidatos (Posgrado).</p>
+                    </div>
+                </div>
+                <div class="bg-surface-container-low p-6 rounded-2xl flex items-center gap-4 border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-primary">account_tree</span>
+                    <div>
+                        <p class="font-bold text-on-background">Vectores Virales</p>
+                        <p class="text-xs text-on-surface-variant leading-tight">De la biología al potencial de aplicación en terapia génica y vacunas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24 bg-white p-10 rounded-[2.5rem] border border-outline-variant/30 shadow-sm">
+            <h2 class="text-2xl font-bold font-headline mb-8 text-primary">Trayectoria Académica</h2>
+            
+            <div class="flex flex-wrap gap-4 border-b border-outline-variant/20 mb-10">
+                <button onclick="openTab(event, 'grado')" class="tab-btn px-6 py-3 font-bold text-sm uppercase tracking-widest text-on-surface-variant hover:text-primary active">Cursos de Grado</button>
+                <button onclick="openTab(event, 'posgrado')" class="tab-btn px-6 py-3 font-bold text-sm uppercase tracking-widest text-on-surface-variant hover:text-primary">Posgrado</button>
+                <button onclick="openTab(event, 'exterior')" class="tab-btn px-6 py-3 font-bold text-sm uppercase tracking-widest text-on-surface-variant hover:text-primary">Dictados en el Exterior</button>
+            </div>
+
+            <div id="grado" class="tab-content active animate-in fade-in duration-500">
+                <ul class="space-y-6">
+                    <li class="pl-4 border-l-4 border-primary/20">
+                        <p class="font-bold">Materia Microbiología Módulo Virología</p>
+                        <p class="text-xs text-on-surface-variant mb-2">Licenciatura Biología/Bioquímica</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-[10px] uppercase font-black text-primary hover:underline">Ver Programa</a>
+                            <a href="#" class="text-[10px] uppercase font-black text-primary hover:underline">Acceder EVA</a>
+                        </div>
+                    </li>
+                    <li class="pl-4 border-l-4 border-primary/20">
+                        <p class="font-bold">Seminarios de Introducción a la Biología II</p>
+                        <ul class="text-sm mt-2 text-on-surface-variant space-y-1 list-disc list-inside">
+                            <li>Los virus y el agua: detección en cañada de Malvín.</li>
+                            <li>¿Cómo volver visibles a los virus?</li>
+                            <li>HSV-1 como vector de expresión.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="posgrado" class="tab-content animate-in fade-in duration-500">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-sm">
+                    <div class="space-y-4">
+                        <p class="leading-relaxed"><strong class="text-primary">Eco-epidemiología de los arbovirus.</strong> Fundamentos y métodos (2014).</p>
+                        <p class="leading-relaxed"><strong class="text-primary">Zoonosis virales emergentes.</strong> FIOCRUZ/PEDECIBA (2012).</p>
+                        <p class="leading-relaxed"><strong class="text-primary">RNA virus populations.</strong> Instituto Pasteur (2012).</p>
+                        <p class="leading-relaxed"><strong class="text-primary">Vectores Virales.</strong> Mabel Berois (Coordinadora).</p>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="leading-relaxed"><strong class="text-primary">Introducción a la genómica computacional.</strong> Genomas virales.</p>
+                        <p class="leading-relaxed"><strong class="text-primary">Inmunología Viral.</strong> Apoyado por AUGM y PEDECIBA (2005).</p>
+                        <p class="leading-relaxed"><strong class="text-primary">Virosis emergentes y re-emergentes.</strong> (2001-2006).</p>
+                    </div>
+                </div>
+                <p class="text-[10px] mt-8 text-on-surface-variant italic">Historial académico completo disponible en la base de datos de la Sección.</p>
+            </div>
+
+            <div id="exterior" class="tab-content animate-in fade-in duration-500">
+                <ul class="space-y-4 text-sm">
+                    <li class="flex gap-4">
+                        <span class="text-primary font-black italic">Paraguay</span>
+                        <p>Eco-epidemiología de arbovirus. Universidad Nacional de Asunción (2012-2014).</p>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-primary font-black italic">Ecuador</span>
+                        <p>Virología básica: Detección y tipificación. Univ. Católica de Guayaquil (2011-2014).</p>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-primary font-black italic">Chile</span>
+                        <p>Tópicos en Virología. Universidad Austral de Chile (2014).</p>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-primary font-black italic">Brasil</span>
+                        <p>Diversidad Viral. Universidad Feevale (2008-2014).</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-12 border-t border-emerald-900/5 text-center text-xs font-bold text-on-surface-variant/50 uppercase tracking-widest bg-[#f6faf6]">
+        © 2026 Sección Virología - Facultad de Ciencias - UDELAR
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
+</body>
+</html>
