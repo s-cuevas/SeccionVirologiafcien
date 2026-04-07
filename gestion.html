@@ -1,45 +1,177 @@
-<main class="pt-44 pb-20 max-w-5xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row gap-12">
-        <aside class="w-full md:w-64 space-y-2">
-            <button onclick="switchTab('publicaciones')" id="tab-pub-btn" class="sidebar-link active w-full flex items-center gap-3 p-4 rounded-2xl font-bold text-sm bg-primary text-white">
-                <span class="material-symbols-outlined">article</span> Publicaciones
-            </button>
-            <button onclick="switchTab('tutorias')" id="tab-tut-btn" class="sidebar-link w-full flex items-center gap-3 p-4 rounded-2xl font-bold text-sm text-on-surface-variant hover:bg-emerald-900/5">
-                <span class="material-symbols-outlined">assignment</span> Tutorías
-            </button>
-        </aside>
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Panel de Gestión | Sección Virología</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = { theme: { extend: { colors: { "primary": "#0d631b", "surface": "#f6faf6" } } } }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-header { background: rgba(246, 250, 246, 0.7); backdrop-filter: blur(20px); }
+        .sidebar-link.active { background: #0d631b; color: white; shadow: 0 10px 15px -3px rgba(13, 99, 27, 0.2); }
+    </style>
+</head>
+<body class="bg-surface text-slate-800 font-body">
 
-        <div class="flex-grow">
-            <div id="view-publicaciones" class="tab-content active">
-                <h1 class="text-4xl font-black text-primary mb-6 uppercase tracking-tighter italic">Nueva Publicación</h1>
-                <form onsubmit="enviarDatos(event, 'Publicaciones')" class="bg-white p-8 rounded-[2.5rem] border border-emerald-900/10 shadow-sm space-y-6">
-                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-full font-black uppercase text-xs">Publicar Artículo</button>
-                </form>
+    <div id="login-container" class="fixed inset-0 z-[100] bg-emerald-900 flex items-center justify-center p-6">
+        <div class="bg-white p-10 rounded-[3rem] shadow-2xl max-w-md w-full text-center">
+            <img class="h-16 mx-auto mb-6" src="https://raw.githubusercontent.com/s-cuevas/SeccionVirologiafcien/main/a1115b78-16f1-444c-912f-ca878fb95f46.jfif">
+            <h2 class="text-3xl font-black text-primary mb-6 uppercase tracking-tighter italic">Acceso Docente</h2>
+            <div class="space-y-4">
+                <input type="text" id="user-field" placeholder="Usuario" class="w-full bg-slate-100 border-none rounded-2xl p-4 text-center font-bold outline-none">
+                <input type="password" id="pass-field" placeholder="Contraseña" class="w-full bg-slate-100 border-none rounded-2xl p-4 text-center font-bold outline-none">
+                <button onclick="attemptLogin()" class="w-full bg-primary text-white py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:scale-[1.02] transition-all">Entrar al Panel</button>
             </div>
-
-            <div id="view-tutorias" class="tab-content hidden">
-                <h1 class="text-4xl font-black text-primary mb-6 uppercase tracking-tighter italic">Nueva Tutoría</h1>
-                <form onsubmit="enviarDatos(event, 'Tutorias')" class="bg-white p-8 rounded-[2.5rem] border border-emerald-900/10 shadow-sm space-y-6">
-                    <input type="text" name="titulo" placeholder="Título de la Tesis" class="w-full bg-slate-50 border-none rounded-xl p-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <select name="tutor" class="w-full bg-slate-50 border-none rounded-xl p-4">
-                            <option>Dra. Adriana Delfraro</option>
-                            <option>Dra. Sandra Frabasile</option>
-                            </select>
-                        <select name="cotutor" class="w-full bg-slate-50 border-none rounded-xl p-4">
-                            <option value="">Sin Cotutor</option>
-                            <option>Dra. Natalia Ramos</option>
-                            </select>
-                    </div>
-                    <input type="text" name="estudiante" placeholder="Nombre del Estudiante" class="w-full bg-slate-50 border-none rounded-xl p-4">
-                    <select name="nivel" class="w-full bg-slate-50 border-none rounded-xl p-4">
-                        <option>Grado</option>
-                        <option>Maestría (PEDECIBA)</option>
-                        <option>Doctorado (PEDECIBA)</option>
-                    </select>
-                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-full font-black uppercase text-xs">Registrar Tutoría</button>
-                </form>
-            </div>
+            <p id="auth-error" class="text-red-600 text-xs font-bold mt-4 hidden">Credenciales incorrectas.</p>
         </div>
     </div>
-</main>
+
+    <div id="admin-panel" class="hidden">
+        <nav class="fixed top-0 w-full z-50 glass-header shadow-sm h-28 flex items-center">
+            <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <img class="h-16" src="https://raw.githubusercontent.com/s-cuevas/SeccionVirologiafcien/main/a1115b78-16f1-444c-912f-ca878fb95f46.jfif">
+                    <span class="text-primary font-black uppercase tracking-widest text-xs hidden md:block">Gestión Interna</span>
+                </div>
+                <button onclick="processLogout()" class="px-6 py-2 rounded-xl bg-primary text-white font-bold text-xs uppercase tracking-widest">Cerrar Sesión</button>
+            </div>
+        </nav>
+
+        <main class="pt-44 pb-20 max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12">
+                <aside class="w-full md:w-64 space-y-2">
+                    <button onclick="switchTab('publicaciones')" id="btn-pub" class="sidebar-link active w-full flex items-center gap-3 p-4 rounded-2xl font-bold text-sm transition-all">
+                        <span class="material-symbols-outlined">article</span> Publicaciones
+                    </button>
+                    <button onclick="switchTab('tutorias')" id="btn-tut" class="sidebar-link w-full flex items-center gap-3 p-4 rounded-2xl font-bold text-sm text-slate-500 hover:bg-emerald-50 transition-all">
+                        <span class="material-symbols-outlined">assignment</span> Tutorías
+                    </button>
+                </aside>
+
+                <div class="flex-grow">
+                    
+                    <div id="view-publicaciones" class="tab-content">
+                        <h1 class="text-4xl font-black text-primary mb-8 uppercase tracking-tighter italic">Nueva Publicación</h1>
+                        <form onsubmit="enviarDatos(event, 'Publicaciones')" class="bg-white p-10 rounded-[3rem] border border-emerald-900/10 shadow-sm space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="md:col-span-2">
+                                    <label class="text-[10px] font-black uppercase text-primary tracking-[0.2em] mb-2 block">Autores</label>
+                                    <input type="text" name="autores" required placeholder="Ej: Ramos N, Arbiza J..." class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none focus:ring-2 focus:ring-primary/20">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="text-[10px] font-black uppercase text-primary tracking-[0.2em] mb-2 block">Título</label>
+                                    <input type="text" name="titulo" required class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none focus:ring-2 focus:ring-primary/20">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black uppercase text-primary tracking-[0.2em] mb-2 block">Revista</label>
+                                    <input type="text" name="revista" required class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none focus:ring-2 focus:ring-primary/20">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black uppercase text-primary tracking-[0.2em] mb-2 block">Año</label>
+                                    <input type="number" name="anio" value="2026" required class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none focus:ring-2 focus:ring-primary/20">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="text-[10px] font-black uppercase text-primary tracking-[0.2em] mb-2 block">Link DOI / URL</label>
+                                    <input type="url" name="enlace" required placeholder="https://..." class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none focus:ring-2 focus:ring-primary/20">
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white py-5 rounded-full font-black uppercase text-xs tracking-widest shadow-xl">Agregar Publicación</button>
+                        </form>
+                    </div>
+
+                    <div id="view-tutorias" class="tab-content hidden">
+                        <h1 class="text-4xl font-black text-primary mb-8 uppercase tracking-tighter italic">Nueva Tutoría</h1>
+                        <form onsubmit="enviarDatos(event, 'Tutorias')" class="bg-white p-10 rounded-[3rem] border border-emerald-900/10 shadow-sm space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="md:col-span-2">
+                                    <label class="text-[10px] font-black uppercase text-primary tracking-[0.2em] mb-2 block">Título de Tesis / Trabajo</label>
+                                    <input type="text" name="titulo" required class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black uppercase text-primary tracking-[0.2em] mb-2 block">Estudiante</label>
+                                    <input type="text" name="estudiante" required class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black uppercase text-primary tracking-[0.2em] mb-2 block">Nivel</label>
+                                    <select name="nivel" class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none">
+                                        <option>Grado</option>
+                                        <option>Maestría</option>
+                                        <option>Doctorado</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black uppercase text-primary tracking-[0.2em] mb-2 block">Tutor</label>
+                                    <input type="text" name="tutor" required class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black uppercase text-primary tracking-[0.2em] mb-2 block">Cotutor (Opcional)</label>
+                                    <input type="text" name="cotutor" class="w-full bg-slate-50 border-none rounded-xl p-4 outline-none">
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white py-5 rounded-full font-black uppercase text-xs tracking-widest shadow-xl">Registrar Tutoría</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const AUTH = { user: "virologia", pass: "fcien2026" };
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby8fLW2Q3BeJLhgXhj2SFJ_rAN5ayaR-MIu42XL8EmYHbhi7_2bIhwaXAmNwHPfS1Dj/exec';
+
+        window.onload = () => { if(sessionStorage.getItem('v_auth')==='true') showAdmin(); };
+
+        function attemptLogin() {
+            const u = document.getElementById('user-field').value;
+            const p = document.getElementById('pass-field').value;
+            if(u === AUTH.user && p === AUTH.pass) {
+                sessionStorage.setItem('v_auth', 'true');
+                showAdmin();
+            } else { document.getElementById('auth-error').classList.remove('hidden'); }
+        }
+
+        function showAdmin() {
+            document.getElementById('login-container').classList.add('hidden');
+            document.getElementById('admin-panel').classList.remove('hidden');
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.add('hidden'));
+            document.getElementById('view-' + tabId).classList.remove('hidden');
+            
+            // Estética botones
+            document.querySelectorAll('.sidebar-link').forEach(b => b.classList.remove('active', 'bg-primary', 'text-white'));
+            const activeBtn = tabId === 'publicaciones' ? 'btn-pub' : 'btn-tut';
+            document.getElementById(activeBtn).classList.add('active', 'bg-primary', 'text-white');
+        }
+
+        async function enviarDatos(e, pestaña) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = "ENVIANDO...";
+            btn.disabled = true;
+
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            data.pestaña = pestaña; // Le decimos al script a qué pestaña ir
+
+            try {
+                await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
+                alert("¡Datos guardados con éxito en " + pestaña + "!");
+                e.target.reset();
+            } catch (err) { alert("Error al conectar con Google Sheets."); }
+            finally { btn.innerText = originalText; btn.disabled = false; }
+        }
+
+        function processLogout() { sessionStorage.clear(); window.location.reload(); }
+    </script>
+</body>
+</html>
