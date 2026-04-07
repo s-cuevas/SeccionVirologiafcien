@@ -15,9 +15,7 @@
                         "primary": "#0d631b",
                         "surface": "#f6faf6",
                         "on-surface-variant": "#40493d",
-                        "tertiary-container": "#2f7b5e",
-                    },
-                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem" }
+                    }
                 }
             }
         }
@@ -25,6 +23,8 @@
     <style>
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .glass-header { background: rgba(246, 250, 246, 0.7); backdrop-filter: blur(20px); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
         .sidebar-link.active { background: #0d631b; color: white; }
     </style>
 </head>
@@ -35,149 +35,122 @@
             <a href="index.html" class="flex-shrink-0">
                 <img alt="Virología Logo" class="h-20 w-auto object-contain" src="https://raw.githubusercontent.com/s-cuevas/SeccionVirologiafcien/main/a1115b78-16f1-444c-912f-ca878fb95f46.jfif"/>
             </a>
-            <div class="hidden md:flex items-center gap-8">
-                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="index.html">Inicio</a>
-                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="integrantes.html">Integrantes</a>
-                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="investigacion.html">Investigación</a>
-                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="docencia.html">Docencia</a>
-                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="publicaciones.html">Publicaciones</a>
-            </div>
             <div class="flex items-center gap-4">
-                <a href="index.html" class="px-5 py-2 rounded-DEFAULT bg-primary text-on-primary font-headline text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-all text-center">Cerrar Sesión</a>
+                <a href="index.html" class="px-5 py-2 rounded-xl bg-primary text-on-primary font-headline text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-all text-center">Salir</a>
             </div>
         </div>
     </nav>
 
     <main class="pt-44 pb-20 max-w-7xl mx-auto px-6">
-        
         <div class="flex flex-col md:flex-row gap-12">
             
             <aside class="w-full md:w-64 space-y-2">
                 <div class="p-6 bg-white rounded-3xl border border-emerald-900/5 shadow-sm">
-                    <p class="text-[10px] font-black uppercase tracking-widest text-primary mb-4">Panel de Control</p>
+                    <p class="text-[10px] font-black uppercase tracking-widest text-primary mb-4">Administración</p>
                     <nav class="space-y-1">
-                        <a href="#" class="sidebar-link active flex items-center gap-3 p-3 rounded-xl font-bold text-sm transition-all">
+                        <button onclick="showSection('tutorias')" id="btn-tutorias" class="sidebar-link active w-full flex items-center gap-3 p-3 rounded-xl font-bold text-sm transition-all">
                             <span class="material-symbols-outlined">assignment</span> Tutorías
-                        </a>
-                        <a href="#" class="sidebar-link flex items-center gap-3 p-3 rounded-xl font-bold text-sm text-on-surface-variant hover:bg-emerald-900/5 transition-all">
-                            <span class="material-symbols-outlined">group</span> Integrantes
-                        </a>
-                        <a href="#" class="sidebar-link flex items-center gap-3 p-3 rounded-xl font-bold text-sm text-on-surface-variant hover:bg-emerald-900/5 transition-all">
+                        </button>
+                        <button onclick="showSection('publicaciones')" id="btn-publicaciones" class="sidebar-link w-full flex items-center gap-3 p-3 rounded-xl font-bold text-sm text-on-surface-variant hover:bg-emerald-900/5 transition-all">
                             <span class="material-symbols-outlined">article</span> Publicaciones
-                        </a>
-                        <a href="#" class="sidebar-link flex items-center gap-3 p-3 rounded-xl font-bold text-sm text-on-surface-variant hover:bg-emerald-900/5 transition-all">
-                            <span class="material-symbols-outlined">settings</span> Configuración
-                        </a>
+                        </button>
                     </nav>
                 </div>
             </aside>
 
-            <div class="flex-grow space-y-12">
+            <div class="flex-grow">
                 
-                <header>
-                    <h1 class="text-4xl font-black font-headline tracking-tighter text-primary">Gestión de Tutorías</h1>
-                    <p class="text-on-surface-variant mt-2 italic">Añadir nuevas tesis y pasantías a la tabla de integrantes.</p>
-                </header>
+                <div id="section-tutorias" class="tab-content active space-y-8">
+                    <header>
+                        <h1 class="text-4xl font-black font-headline tracking-tighter text-primary">Gestión de Tutorías</h1>
+                        <p class="text-on-surface-variant mt-2 italic text-sm">Registro de tesis de grado, maestría y doctorado[cite: 382].</p>
+                    </header>
 
-                <section class="bg-white p-10 rounded-[2.5rem] border border-emerald-900/10 shadow-sm">
-                    <form class="space-y-8">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <section class="bg-white p-8 rounded-[2.5rem] border border-emerald-900/10 shadow-sm">
+                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="md:col-span-2">
-                                <label class="block text-xs font-black uppercase tracking-widest text-primary mb-2">Título del Proyecto / Tesis</label>
-                                <input type="text" placeholder="Ej: Caracterización molecular de virus..." class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary transition-all">
+                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Título de la Tesis / Proyecto</label>
+                                <input type="text" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
                             </div>
-
                             <div>
-                                <label class="block text-xs font-black uppercase tracking-widest text-primary mb-2">Tutor/a Responsable</label>
-                                <select class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary transition-all">
-                                    <option>Dra. Adriana Delfraro</option>
-                                    <option>Dra. Sandra Frabasile</option>
-                                    <option>Dra. Mabel Berois</option>
-                                    <option>Dra. Natalia Ramos</option>
-                                    <option>Dr. Germán Botto</option>
+                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Tutor/a Responsable</label>
+                                <select class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                    <option>Adriana Delfraro [cite: 12]</option>
+                                    <option>Mabel Berois [cite: 368]</option>
+                                    <option>Sandra Frabasile [cite: 478]</option>
+                                    <option>Natalia Ramos [cite: 15]</option>
+                                    <option>Santiago Mirazo [cite: 416]</option>
+                                    <option>Natalia Olivero [cite: 369]</option>
+                                    <option>Germán Botto [cite: 186]</option>
                                 </select>
                             </div>
-
                             <div>
-                                <label class="block text-xs font-black uppercase tracking-widest text-primary mb-2">Nombre del Estudiante</label>
-                                <input type="text" placeholder="Nombre completo" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary transition-all">
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-black uppercase tracking-widest text-primary mb-2">Nivel Académico</label>
-                                <div class="flex gap-4">
-                                    <label class="flex items-center gap-2 text-sm font-bold cursor-pointer">
-                                        <input type="radio" name="nivel" class="text-primary focus:ring-primary"> Grado
-                                    </label>
-                                    <label class="flex items-center gap-2 text-sm font-bold cursor-pointer">
-                                        <input type="radio" name="nivel" class="text-primary focus:ring-primary"> Maestría
-                                    </label>
-                                    <label class="flex items-center gap-2 text-sm font-bold cursor-pointer">
-                                        <input type="radio" name="nivel" class="text-primary focus:ring-primary"> Doctorado
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-black uppercase tracking-widest text-primary mb-2">Estado del Proyecto</label>
-                                <select class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary transition-all">
-                                    <option>En curso</option>
-                                    <option>Finalizado</option>
-                                    <option>En redacción</option>
+                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Cotutor/a (Opcional)</label>
+                                <select class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                    <option value="">Ninguno</option>
+                                    <option>Natalia Ramos [cite: 15]</option>
+                                    <option>Sandra Frabasile [cite: 478]</option>
+                                    <option>Andrés Pizzorno [cite: 419]</option>
+                                    <option>Lucía Moreira [cite: 486]</option>
+                                    <option>Santiago Cuevas [cite: 487]</option>
                                 </select>
                             </div>
-                        </div>
+                            <div class="md:col-span-2 flex justify-end">
+                                <button type="submit" class="bg-primary text-white px-10 py-3 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:opacity-90 transition-all">Guardar Tutoría</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
 
-                        <div class="pt-6 border-t border-emerald-900/5 flex justify-end gap-4">
-                            <button type="reset" class="px-8 py-3 rounded-full font-bold text-sm text-on-surface-variant hover:bg-surface transition-all">Limpiar</button>
-                            <button type="submit" class="px-8 py-3 rounded-full bg-primary text-white font-black text-sm uppercase tracking-widest hover:opacity-90 shadow-lg shadow-primary/20 transition-all active:scale-95">
-                                Publicar Tutoría
-                            </button>
-                        </div>
-                    </form>
-                </section>
+                <div id="section-publicaciones" class="tab-content space-y-8">
+                    <header>
+                        <h1 class="text-4xl font-black font-headline tracking-tighter text-primary">Gestión de Publicaciones</h1>
+                        <p class="text-on-surface-variant mt-2 italic text-sm">Actualizar el catálogo de artículos arbitrados y libros.</p>
+                    </header>
 
-                <section class="space-y-6">
-                    <h3 class="font-black text-primary uppercase tracking-widest text-sm">Tutorías registradas recientemente</h3>
-                    <div class="bg-white rounded-3xl border border-emerald-900/5 overflow-hidden">
-                        <table class="w-full text-left text-sm">
-                            <thead class="bg-emerald-900/5 border-b border-emerald-900/10">
-                                <tr>
-                                    <th class="px-6 py-4 font-black uppercase text-[10px]">Proyecto</th>
-                                    <th class="px-6 py-4 font-black uppercase text-[10px]">Estudiante</th>
-                                    <th class="px-6 py-4 text-right font-black uppercase text-[10px]">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-emerald-900/5">
-                                <tr>
-                                    <td class="px-6 py-4 font-bold">Rotavirus en aguas residuales</td>
-                                    <td class="px-6 py-4">Juan Pérez</td>
-                                    <td class="px-6 py-4 text-right space-x-2">
-                                        <button class="text-primary hover:bg-primary/10 p-2 rounded-lg transition-all"><span class="material-symbols-outlined text-sm">edit</span></button>
-                                        <button class="text-red-600 hover:bg-red-50 p-2 rounded-lg transition-all"><span class="material-symbols-outlined text-sm">delete</span></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 font-bold">Vigilancia de Arbovirus</td>
-                                    <td class="px-6 py-4">Ana Solari</td>
-                                    <td class="px-6 py-4 text-right space-x-2">
-                                        <button class="text-primary hover:bg-primary/10 p-2 rounded-lg transition-all"><span class="material-symbols-outlined text-sm">edit</span></button>
-                                        <button class="text-red-600 hover:bg-red-50 p-2 rounded-lg transition-all"><span class="material-symbols-outlined text-sm">delete</span></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
+                    <section class="bg-white p-8 rounded-[2.5rem] border border-emerald-900/10 shadow-sm">
+                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="md:col-span-2">
+                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Título del Artículo</label>
+                                <input type="text" placeholder="Ej: SARS-CoV-2 genomic characterization..." class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Revista / Editorial</label>
+                                <input type="text" placeholder="Ej: Journal of Virology" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">DOI (Enlace)</label>
+                                <input type="text" placeholder="https://doi.org/..." class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Año de Publicación</label>
+                                <input type="number" value="2026" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div class="md:col-span-2 flex justify-end">
+                                <button type="submit" class="bg-primary text-white px-10 py-3 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:opacity-90 transition-all">Agregar Publicación</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
 
             </div>
         </div>
-
     </main>
 
-    <footer class="py-12 border-t border-emerald-900/5 text-center text-[10px] font-black text-on-surface-variant/40 uppercase tracking-[0.3em]">
-        © 2026 Panel de Administración - Sección Virología
-    </footer>
-
+    <script>
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('.tab-content').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Quitar clase active de los botones
+            document.querySelectorAll('.sidebar-link').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Mostrar la sección seleccionada y activar botón
+            document.getElementById('section-' + sectionId).classList.add('active');
+            document.getElementById('btn-' + sectionId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
