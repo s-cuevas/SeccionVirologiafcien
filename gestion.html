@@ -63,15 +63,15 @@
                 <div id="section-tutorias" class="tab-content active space-y-8">
                     <header>
                         <h1 class="text-4xl font-black font-headline tracking-tighter text-primary">Gestión de Tutorías</h1>
-                        <p class="text-on-surface-variant mt-2 italic text-sm">Registro de tesis y pasantías bajo la supervisión del cuerpo docente[cite: 479, 543].</p>
+                        <p class="text-on-surface-variant mt-2 italic text-sm">Administrar tesis y pasantías de la sección.</p>
                     </header>
 
                     <section class="bg-white p-10 rounded-[2.5rem] border border-emerald-900/10 shadow-sm">
                         <form class="space-y-8">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div class="md:col-span-2">
-                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Título de la Tesis o Pasantía</label>
-                                    <input type="text" placeholder="Ej: Estudio genético del virus Orf en Uruguay..." class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Título del Proyecto / Tesis</label>
+                                    <input type="text" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
                                 </div>
 
                                 <div>
@@ -89,7 +89,7 @@
                                 </div>
 
                                 <div>
-                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Cotutor/a (Opcional)</label>
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Cotutor/a</label>
                                     <select class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
                                         <option value="">Sin Cotutor</option>
                                         <option>Dra. Adriana Delfraro</option>
@@ -111,17 +111,19 @@
                                 <div>
                                     <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Nivel Académico</label>
                                     <select class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
-                                        <option>Grado (Licenciatura)</option>
+                                        <option>Grado</option>
                                         <option>Maestría (PEDECIBA)</option>
+                                        <option>Maestría (Biotecnología)</option>
                                         <option>Doctorado (PEDECIBA)</option>
-                                        <option>Pasantía de Investigación</option>
+                                        <option>Doctorado (Biotecnología)</option>
+                                        <option>Pasantía</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="pt-6 border-t border-emerald-900/5 flex justify-end">
-                                <button type="submit" class="bg-primary text-white px-12 py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:opacity-90 transition-all active:scale-95">
-                                    Registrar Tutoría
+                                <button type="submit" class="bg-primary text-white px-10 py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:opacity-90 transition-all active:scale-95">
+                                    Publicar Tutoría
                                 </button>
                             </div>
                         </form>
@@ -131,41 +133,41 @@
                 <div id="section-publicaciones" class="tab-content space-y-8">
                     <header>
                         <h1 class="text-4xl font-black font-headline tracking-tighter text-primary">Gestión de Publicaciones</h1>
-                        <p class="text-on-surface-variant mt-2 italic text-sm">Actualizar el catálogo científico de la Sección.</p>
+                        <p class="text-on-surface-variant mt-2 italic text-sm">Añadir nuevos artículos o libros al catálogo.</p>
                     </header>
 
                     <section class="bg-white p-10 rounded-[2.5rem] border border-emerald-900/10 shadow-sm">
                         <form class="space-y-8">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div class="md:col-span-2">
-                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Título del Trabajo</label>
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Título de la Publicación</label>
                                     <input type="text" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Autores (Formato: Apellido N, Apellido M...)</label>
-                                    <input type="text" placeholder="Ej: Delfraro A, Botto G, Frabasile S..." class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Autores (separados por comas)</label>
+                                    <input type="text" placeholder="Ej: Ramos N, Mirazo S, Delfraro A..." class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
                                 </div>
 
                                 <div>
                                     <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Revista o Editorial</label>
-                                    <input type="text" placeholder="Ej: Viruses / Archives of Virology" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                    <input type="text" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
                                 </div>
 
                                 <div>
-                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Año de Publicación</label>
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Año</label>
                                     <input type="number" value="2026" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">DOI o Enlace Directo (URL)</label>
-                                    <input type="text" placeholder="https://doi.org/10.3390/v14020269" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Enlace DOI / URL</label>
+                                    <input type="text" placeholder="https://doi.org/..." class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
                                 </div>
                             </div>
 
                             <div class="pt-6 border-t border-emerald-900/5 flex justify-end">
-                                <button type="submit" class="bg-primary text-white px-12 py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:opacity-90 transition-all active:scale-95">
-                                    Agregar al Catálogo
+                                <button type="submit" class="bg-primary text-white px-10 py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:opacity-90 transition-all active:scale-95">
+                                    Agregar Publicación
                                 </button>
                             </div>
                         </form>
