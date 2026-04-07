@@ -1,0 +1,278 @@
+<!-- Virología - Inicio (Final) -->
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f6faf6",
+                    "tertiary-fixed-dim": "#8bd6b4",
+                    "on-surface-variant": "#40493d",
+                    "primary-fixed": "#a3f69c",
+                    "on-secondary-fixed": "#002113",
+                    "on-background": "#181d1a",
+                    "outline-variant": "#bfcaba",
+                    "surface-tint": "#1b6d24",
+                    "inverse-surface": "#2d312f",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#a6f2cf",
+                    "outline": "#707a6c",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#005312",
+                    "surface-container": "#ebefeb",
+                    "on-tertiary-fixed-variant": "#00513a",
+                    "tertiary-container": "#2f7b5e",
+                    "on-secondary-fixed-variant": "#005236",
+                    "primary": "#0d631b",
+                    "error-container": "#ffdad6",
+                    "surface": "#f6faf6",
+                    "surface-container-highest": "#dfe3e0",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#006c49",
+                    "on-surface": "#181d1a",
+                    "tertiary": "#0d6247",
+                    "inverse-on-surface": "#eef2ee",
+                    "surface-variant": "#dfe3e0",
+                    "on-secondary-container": "#00714d",
+                    "primary-fixed-dim": "#88d982",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#002115",
+                    "on-tertiary-container": "#c3ffe2",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#002204",
+                    "background": "#f6faf6",
+                    "surface-container-low": "#f1f5f1",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-primary-container": "#cbffc2",
+                    "primary-container": "#2e7d32",
+                    "secondary-container": "#6cf8bb",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#88d982",
+                    "surface-container-high": "#e5e9e5",
+                    "surface-dim": "#d7dbd7",
+                    "secondary-fixed-dim": "#4edea3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(246, 250, 246, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<nav class="fixed top-0 w-full z-50 glass-header shadow-sm dark:shadow-none">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="text-2xl font-black font-headline tracking-tighter text-primary"><img alt="Virología Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ughmE1svbDphDyiOgTwtkC12WcXTyxLycaNu9nC-yaAJSqxpzwa3YMD1iQXJpzHkUHZPwG_Qk3NBUhZ799YK0BfrCGJJA-dL7WXqypJaseUBpmhx38c8n4ZFQdMWaFLmvpZM3wov97HnX82j73OwYy55HBbFJMrNonTdKw0ToeV4IBRv5DACgb0JU3Bd-n3qhFbWlWi_cJuuFwdXZdxihd74TNyGEHBLVLU0rQe7Q_VH7nfhGjMp6cht4Yfq97hIDh0CcvynmbujA"/></div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface border-b-2 border-primary pb-1" href="#">Inicio</a>
+<a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">Integrantes</a>
+<a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">Investigación</a>
+<a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">Docencia</a>
+<a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="#">Publicaciones</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-5 py-2 rounded-DEFAULT font-headline text-sm font-semibold uppercase tracking-wider text-primary hover:bg-surface-container-high transition-all duration-300 ease-in-out active:scale-95">Login</button>
+<button class="px-5 py-2 rounded-DEFAULT bg-primary text-on-primary font-headline text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-all duration-300 ease-in-out active:scale-95">Gestión</button>
+</div>
+</div>
+</nav>
+<main>
+<section class="relative h-[921px] flex items-center overflow-hidden pt-20">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-90 scale-105" data-alt="abstract close-up of viral protein structures and biological molecules in deep emerald and mint green tones with soft atmospheric lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuQ1utEhVlLi6w6UfEOIJ9jRgLpXf3vhbVcv1tdVLaehjFNo39P-cTTHpJsKhj86975Xxvbxs1OpacnEqiXosSoTf7SCqY3b64B7hY4RJmpI78kCIagvjlNTj6ReAhG-QZgRPY2n4BOznSE1F7FUg0i9iW0FZr83c7TFgxIAKKraiPmWNF8M118ZO-U8VsYdQ2y0NBGZWlusOb7Tu0B-NzTTA8x01QQ2GrzuzjaNUli4R3bVnY41iZ5swrNTLt0ZxYEBQTP4hVCjs"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-bright via-surface-bright/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+<div class="max-w-2xl">
+<span class="inline-block px-4 py-1.5 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold tracking-widest uppercase mb-6">Sección Virología</span>
+<h1 class="text-6xl md:text-7xl font-headline font-black tracking-tighter text-on-background leading-[0.95] mb-8">
+                        La ciencia que <span class="text-primary italic">descifra</span> la vida.
+                    </h1>
+<p class="text-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed">
+                        Explorando los límites de la biología molecular para comprender los patógenos que desafían la salud global y el equilibrio de los ecosistemas.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-primary text-on-primary rounded-DEFAULT font-bold text-base hover:opacity-90 transition-all">Explorar Investigación</button>
+<button class="px-8 py-4 bg-surface-container-lowest text-primary rounded-DEFAULT font-bold text-base shadow-sm hover:bg-surface-container-high transition-all">Ver Últimas Noticias</button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="group bg-surface-container-low p-8 rounded-lg hover:bg-primary transition-all duration-500 cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center mb-6 group-hover:bg-on-primary/20">
+<span class="material-symbols-outlined text-on-primary-fixed-variant group-hover:text-on-primary">group</span>
+</div>
+<h3 class="text-xl font-bold font-headline mb-2 group-hover:text-on-primary">Cuerpo Docente</h3>
+<p class="text-sm text-on-surface-variant group-hover:text-on-primary/80">Conozca a los investigadores y académicos que lideran nuestra sección.</p>
+</div>
+<div class="group bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/10 hover:translate-y-[-4px] transition-all duration-500 cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-on-secondary-container">science</span>
+</div>
+<h3 class="text-xl font-bold font-headline mb-2">Investigación</h3>
+<p class="text-sm text-on-surface-variant">Líneas de trabajo, proyectos financiados y laboratorios especializados.</p>
+</div>
+<div class="group bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/10 hover:translate-y-[-4px] transition-all duration-500 cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-on-tertiary-container">school</span>
+</div>
+<h3 class="text-xl font-bold font-headline mb-2">Docencia</h3>
+<p class="text-sm text-on-surface-variant">Cursos de grado, posgrado y oportunidades de formación académica.</p>
+</div>
+<div class="group bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/10 hover:translate-y-[-4px] transition-all duration-500 cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-on-primary-container">article</span>
+</div>
+<h3 class="text-xl font-bold font-headline mb-2">Publicaciones</h3>
+<p class="text-sm text-on-surface-variant">Archivo de artículos científicos y contribuciones de impacto internacional.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="max-w-xl">
+<h2 class="text-4xl font-headline font-black tracking-tight text-on-background mb-4">Actualidad y Eventos</h2>
+<p class="text-on-surface-variant">Descubra los últimos hallazgos y actividades de nuestra comunidad científica.</p>
+</div>
+<button class="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">
+                        Ver todas las noticias <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<article class="bg-surface-container-lowest rounded-DEFAULT overflow-hidden shadow-sm group">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="scientist in full protective gear working in a high-security laboratory with turquoise and green lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfGFdFfKILwnMHuPz6rKsu16aSrHYwgnmkTYRmxD18GuzZa0F4uXdhVjnCf7D5X5x3F7_8E_Ow4_kENGlO5ZeSmO5XP2gL2ZIsNgk50sRYy3M_FusWePVNerNrefmceaXK4WNuB7GxWXz7Syp37EYMCca1e_Pkm8v53FandRxrPeNITLHI4zNkstxbBpHvdbRZP_4GWdY6abrGrjfZnCMG2vuJGXQTEXIyhkrVAfLBtL_TKYo_xefpW2X3Vsynils2QcSAEC_y9FU"/>
+</div>
+<div class="p-8">
+<div class="flex gap-3 mb-4">
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-[10px] font-bold uppercase">Investigación</span>
+<span class="text-on-surface-variant/60 text-xs py-1">Oct 24, 2024</span>
+</div>
+<h4 class="text-xl font-bold font-headline mb-4 leading-snug">Avances en el estudio de arbovirus emergentes en el Cono Sur</h4>
+<p class="text-sm text-on-surface-variant line-clamp-3 mb-6">Investigadores locales identifican variantes genéticas que podrían explicar la rápida propagación de nuevos brotes virales...</p>
+<a class="text-primary font-bold text-sm" href="#">Leer más</a>
+</div>
+</article>
+<article class="bg-surface-container-lowest rounded-DEFAULT overflow-hidden shadow-sm group">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="magnified viral particles under microscopic view with vibrant neon green fluorescent highlights on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGgGB2Z4r_lyouI2FK6RCnaPQESLPWGt7cysJoQEJ872Zaij2RmCL85TYdWXAMKjoubETf23G5Ke_i4DNeynVImg0GXVGYU0I79NP9VlR80p30_yF_fG8_lLsvTjZdr_5OmMRP1pkgZ9JwG2zxUCFXrqpHAb_5Qa5Ef5qvWnD6t8Asu2-q0_OITJDAkOlHRQnEWr1pwNF455bbSSVkGH6567zn0uSNp4FOWWe2XsUpbn1e4U72fCw49cKUA0ImG5LIj9wApUTNmbU"/>
+</div>
+<div class="p-8">
+<div class="flex gap-3 mb-4">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold uppercase">Congreso</span>
+<span class="text-on-surface-variant/60 text-xs py-1">Sep 15, 2024</span>
+</div>
+<h4 class="text-xl font-bold font-headline mb-4 leading-snug">Simposio Internacional de Virología Molecular 2024</h4>
+<p class="text-sm text-on-surface-variant line-clamp-3 mb-6">El evento reunirá a expertos globales en Montevideo para discutir las futuras amenazas pandémicas y nuevas vacunas...</p>
+<a class="text-primary font-bold text-sm" href="#">Leer más</a>
+</div>
+</article>
+<article class="bg-surface-container-lowest rounded-DEFAULT overflow-hidden shadow-sm group">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="a stack of scholarly journals and petri dishes on a clean lab desk with warm sunbeams through a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBupAjppnzlTThtXDGyimmZTOQAf8tnRLomP_d_EPb5uRuvepm_F48UNRckI39b5NLj56oEFizbUJBbT9Ljv4toXO3DXQHgkDikOiOPvfZ7Kom6xyHRKu50FfvO4nNIAymzPLsT8IP9mzrmD8d5slT_DtO97pegIG6kq1BW1cbwQBeu8Ad77mOK_PHb0G7RBhf8BgnlI_NW5KJ5ofkmSGGfX8a9FlAuwEJ2ky_NdQSSp8Lf3WWDeCgclZeSTEo6QLu-LcP-u1Fk3Zg"/>
+</div>
+<div class="p-8">
+<div class="flex gap-3 mb-4">
+<span class="px-3 py-1 bg-primary-container text-on-primary-container rounded-full text-[10px] font-bold uppercase">Académico</span>
+<span class="text-on-surface-variant/60 text-xs py-1">Ago 02, 2024</span>
+</div>
+<h4 class="text-xl font-bold font-headline mb-4 leading-snug">Apertura de inscripciones para el Doctorado en Virología</h4>
+<p class="text-sm text-on-surface-variant line-clamp-3 mb-6">Se abre la convocatoria para jóvenes investigadores que deseen especializarse en el estudio de virus animales y vegetales...</p>
+<a class="text-primary font-bold text-sm" href="#">Leer más</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface overflow-hidden">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row items-center gap-16">
+<div class="flex-1 relative">
+<div class="w-full aspect-square rounded-xl bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="modern research facility architecture with clean lines and greenery seen through large glass windows in soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL38xzJfl1TlbXBkiBi7sJS7C5m4ArI9xsRSWsNMnLMHmUx6J-_fpmoBt5Pidm34WUgB5p5IDWFQvZFDy_nwvvBIah6RupmzJrZUhPffdHjVFXo6mqR1x4yFnkGGs3c7b3k9frM2HoYogTjjQ8s5yoqq33eSxHB5jz_fUeLJsycvtxX2to820ks2_SVYEIGRUPAhLq6nssWer5N8AguYPuIOHAL_nq_LX_Q1W1JTUZQK4VkD-ejMMwoCi9Em-CVkvEEhnJ9m7JVvQ"/>
+</div>
+<div class="absolute -bottom-6 -right-6 p-10 bg-primary rounded-lg text-on-primary max-w-xs shadow-xl">
+<p class="font-headline font-bold text-3xl mb-2">25+</p>
+<p class="text-sm opacity-80 uppercase tracking-widest font-semibold">Años de excelencia en investigación científica</p>
+</div>
+</div>
+<div class="flex-1">
+<h2 class="text-4xl font-headline font-black tracking-tight text-on-background mb-8">Nuestra Misión</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-6">
+                            La Sección Virología tiene como propósito fundamental el avance del conocimiento científico sobre los agentes virales que afectan la vida humana, animal y vegetal. 
+                        </p>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-8">
+                            A través de la integración de la investigación básica y aplicada, la formación de recursos humanos de alto nivel y el vínculo con la sociedad, buscamos dar respuesta a los desafíos epidemiológicos actuales con rigor académico y compromiso social.
+                        </p>
+<div class="grid grid-cols-2 gap-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<h5 class="font-bold text-on-background">Excelencia</h5>
+<p class="text-xs text-on-surface-variant">Rigor en cada procedimiento.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<h5 class="font-bold text-on-background">Innovación</h5>
+<p class="text-xs text-on-surface-variant">Nuevas fronteras tecnológicas.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full border-t border-emerald-900/5 bg-[#f6faf6]">
+<div class="max-w-7xl mx-auto py-12 px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col gap-4">
+<div class="font-headline font-bold text-primary text-xl">Virología</div>
+<p class="font-body text-sm text-on-surface-variant max-w-xs">Facultad de Ciencias, Universidad de la República.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-body text-sm text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/30 underline-offset-4 transition-all" href="#">Universidad de la República</a>
+<a class="font-body text-sm text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/30 underline-offset-4 transition-all" href="#">Facultad de Ciencias</a>
+<a class="font-body text-sm text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/30 underline-offset-4 transition-all" href="#">Contacto Departamento</a>
+<a class="font-body text-sm text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/30 underline-offset-4 transition-all" href="#">Políticas de Privacidad</a>
+</div>
+<div class="text-sm font-body text-on-surface-variant opacity-70">
+                © 2024 Sección Virología - Facultad de Ciencias
+            </div>
+</div>
+</footer>
+</body></html>
