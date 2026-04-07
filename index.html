@@ -24,7 +24,8 @@
     <style>
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .glass-header { background: rgba(246, 250, 246, 0.7); backdrop-filter: blur(20px); }
-        .hero-gradient { background: linear-gradient(to right, #f6faf6 40%, rgba(246, 250, 246, 0) 100%); }
+        /* Gradiente más profundo para resaltar el texto sobre la nueva imagen */
+        .hero-gradient { background: linear-gradient(to right, #f6faf6 45%, rgba(246, 250, 246, 0.3) 100%); }
     </style>
 </head>
 <body class="bg-surface font-body text-on-surface">
@@ -49,82 +50,89 @@
 </nav>
 
 <main class="pt-28">
-    <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section class="relative min-h-[95vh] flex items-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img class="w-full h-full object-cover opacity-70" src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=2000"/>
+            <img class="w-full h-full object-cover opacity-60" src="https://images.unsplash.com/photo-1583912267550-d44d7a125e7e?auto=format&fit=crop&q=80&w=2000"/>
             <div class="absolute inset-0 hero-gradient"></div>
         </div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
             <div class="max-w-4xl">
-                <div class="mb-12">
-                    <h2 class="text-primary font-black uppercase tracking-[0.25em] text-sm mb-2">Departamento de Biología Celular y Molecular</h2>
-                    <p class="text-on-surface-variant/60 font-bold text-xs uppercase tracking-widest">
-                        Instituto de Biología [cite: 5, 14, 17] — Instituto de Química Biológica 
-                    </p>
+                <div class="mb-14">
+                    <h2 class="text-primary font-black uppercase tracking-[0.25em] text-sm mb-4">Departamento de Biología Celular y Molecular</h2>
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start md:items-center">
+                        <p class="text-on-surface-variant font-extrabold text-xs uppercase tracking-widest bg-white/50 px-3 py-1 rounded">Instituto de Biología</p>
+                        <span class="hidden md:block text-primary/30">•</span>
+                        <p class="text-on-surface-variant font-extrabold text-xs uppercase tracking-widest bg-white/50 px-3 py-1 rounded">Instituto de Química Biológica</p>
+                    </div>
                 </div>
 
-                <div class="mb-10">
-                    <h1 class="text-4xl md:text-6xl font-headline font-black tracking-tighter text-on-background mb-6">¡Bienvenid@s!</h1>
-                    <p class="text-xl md:text-2xl text-on-surface-variant leading-tight max-w-3xl">
+                <div class="mb-12">
+                    <h1 class="text-5xl md:text-7xl font-headline font-black tracking-tighter text-on-background mb-8 italic">¡Bienvenid@s!</h1>
+                    <p class="text-xl md:text-2xl text-on-surface-variant leading-snug max-w-3xl">
                         En el laboratorio de virología nos adentramos en el estudio de una gran diversidad de virus que infectan humanos y animales, y que se encuentran presentes en los ecosistemas acuáticos.
                     </p>
                 </div>
 
-                <div class="space-y-8">
-                    <div class="bg-primary/5 p-8 rounded-3xl border-l-8 border-primary max-w-3xl shadow-sm">
-                        <p class="text-xl md:text-2xl text-on-surface-variant leading-relaxed italic">
-                            "La <strong>virosfera</strong> es el conjunto de todos los virus que habitan en la Tierra, y nos falta mucho por conocer: es nuestra <span class="text-primary font-black not-italic uppercase tracking-tighter">terra incógnita</span>."
+                <div class="space-y-10">
+                    <div class="bg-primary/5 backdrop-blur-sm p-10 rounded-[2.5rem] border-l-[12px] border-primary max-w-3xl shadow-sm">
+                        <p class="text-2xl md:text-3xl text-on-surface-variant leading-relaxed font-medium italic">
+                            "La <strong>virosfera</strong> es el conjunto de todos los virus que habitan en la Tierra, y nos falta mucho por conocer: es nuestra <span class="text-primary font-black not-italic uppercase tracking-tighter decoration-4 underline underline-offset-8">terra incógnita</span>."
                         </p>
                     </div>
                     
-                    <p class="text-2xl font-black tracking-tight text-on-background flex items-center gap-4 uppercase">
+                    <p class="text-2xl font-black tracking-tight text-on-background flex items-center gap-5 uppercase">
                         Acompañanos en esta búsqueda de lo invisible 
-                        <span class="material-symbols-outlined text-4xl text-primary animate-bounce">expand_circle_down</span>
+                        <span class="material-symbols-outlined text-5xl text-primary animate-bounce">biotech</span>
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-surface border-t border-emerald-900/5">
+    <section class="py-24 bg-white border-t border-emerald-900/5">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <a href="investigacion.html" class="group bg-white p-8 rounded-2xl shadow-sm border border-emerald-900/5 hover:bg-primary transition-all duration-300">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white/20">
-                        <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">science</span>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <a href="investigacion.html" class="group p-8 rounded-3xl border border-emerald-900/5 hover:bg-primary hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                    <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white text-4xl">science</span>
                     </div>
-                    <h3 class="text-xl font-bold group-hover:text-white">Investigación</h3>
-                    <p class="text-sm text-on-surface-variant group-hover:text-white/80 mt-2">Descubre nuestras líneas de trabajo y proyectos.</p>
+                    <h3 class="text-2xl font-black group-hover:text-white">Investigación</h3>
+                    <p class="text-sm text-on-surface-variant group-hover:text-white/80 mt-4 leading-relaxed">Explora nuestras líneas de trabajo y proyectos de vanguardia.</p>
                 </a>
-                <a href="docencia.html" class="group bg-white p-8 rounded-2xl shadow-sm border border-emerald-900/5 hover:bg-primary transition-all duration-300">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white/20">
-                        <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">school</span>
+                
+                <a href="docencia.html" class="group p-8 rounded-3xl border border-emerald-900/5 hover:bg-primary hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                    <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white text-4xl">school</span>
                     </div>
-                    <h3 class="text-xl font-bold group-hover:text-white">Docencia</h3>
-                    <p class="text-sm text-on-surface-variant group-hover:text-white/80 mt-2">Oferta estable de grado y posgrado[cite: 3, 160].</p>
+                    <h3 class="text-2xl font-black group-hover:text-white">Docencia</h3>
+                    <p class="text-sm text-on-surface-variant group-hover:text-white/80 mt-4 leading-relaxed">Formación académica de excelencia en grado y posgrado.</p>
                 </a>
-                <a href="integrantes.html" class="group bg-white p-8 rounded-2xl shadow-sm border border-emerald-900/5 hover:bg-primary transition-all duration-300">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white/20">
-                        <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">group</span>
+
+                <a href="integrantes.html" class="group p-8 rounded-3xl border border-emerald-900/5 hover:bg-primary hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                    <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white text-4xl">group</span>
                     </div>
-                    <h3 class="text-xl font-bold group-hover:text-white">Integrantes</h3>
-                    <p class="text-sm text-on-surface-variant group-hover:text-white/80 mt-2">El equipo docente e investigador[cite: 12, 170].</p>
+                    <h3 class="text-2xl font-black group-hover:text-white">Integrantes</h3>
+                    <p class="text-sm text-on-surface-variant group-hover:text-white/80 mt-4 leading-relaxed">Conoce al equipo humano y científico de la Sección.</p>
                 </a>
-                <a href="publicaciones.html" class="group bg-white p-8 rounded-2xl shadow-sm border border-emerald-900/5 hover:bg-primary transition-all duration-300">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white/20">
-                        <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">article</span>
+
+                <a href="publicaciones.html" class="group p-8 rounded-3xl border border-emerald-900/5 hover:bg-primary hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                    <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white text-4xl">article</span>
                     </div>
-                    <h3 class="text-xl font-bold group-hover:text-white">Publicaciones</h3>
-                    <p class="text-sm text-on-surface-variant group-hover:text-white/80 mt-2">Nuestra producción científica.</p>
+                    <h3 class="text-2xl font-black group-hover:text-white">Publicaciones</h3>
+                    <p class="text-sm text-on-surface-variant group-hover:text-white/80 mt-4 leading-relaxed">Nuestra contribución al conocimiento científico global.</p>
                 </a>
             </div>
         </div>
     </section>
 </main>
 
-<footer class="py-12 border-t border-emerald-900/5 text-center text-[10px] font-black text-on-surface-variant/40 uppercase tracking-[0.3em]">
-    © 2026 Sección Virología - Facultad de Ciencias - UDELAR
+<footer class="py-16 bg-[#f6faf6] border-t border-emerald-900/5 text-center">
+    <p class="text-[10px] font-black text-on-surface-variant/40 uppercase tracking-[0.4em]">
+        © 2026 Sección Virología - Facultad de Ciencias - UDELAR
+    </p>
 </footer>
 
 </body>
