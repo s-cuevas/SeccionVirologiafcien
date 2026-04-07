@@ -22,9 +22,12 @@
       }
     </script>
     <style>
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined { 
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; 
+            display: inline-block;
+            line-height: 1;
+        }
         .glass-header { background: rgba(246, 250, 246, 0.7); backdrop-filter: blur(20px); }
-        /* Gradiente optimizado para visibilidad de imagen */
         .hero-overlay { background: linear-gradient(90deg, #f6faf6 40%, rgba(246, 250, 246, 0.1) 100%); }
     </style>
 </head>
@@ -62,27 +65,21 @@
         <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
             <div class="max-w-4xl">
                 <div class="mb-14">
-    <div class="flex flex-col gap-3">
-        <h1 class="text-primary font-black uppercase tracking-[0.2em] text-2xl md:text-3xl">
-            Sección Virología
-        </h1>
-        
-        <h2 class="text-on-surface-variant font-bold text-lg tracking-tight uppercase border-l-4 border-primary/30 pl-4">
-            Departamento de Biología Celular y Molecular
-        </h2>
-        
-        <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 items-center">
-            <div class="flex items-center gap-2 bg-emerald-900/5 px-4 py-2 rounded-lg border border-emerald-900/10">
-                <span class="material-symbols-outlined text-primary text-sm">account_balance</span>
-                <p class="text-on-surface-variant font-black text-[11px] uppercase tracking-widest">Instituto de Biología</p>
-            </div>
-            <div class="flex items-center gap-2 bg-emerald-900/5 px-4 py-2 rounded-lg border border-emerald-900/10">
-                <span class="material-symbols-outlined text-primary text-sm">science</span>
-                <p class="text-on-surface-variant font-black text-[11px] uppercase tracking-widest">Instituto de Química Biológica</p>
-            </div>
-        </div>
-    </div>
-</div>
+                    <div class="flex flex-col gap-3">
+                        <h1 class="text-primary font-black uppercase tracking-[0.2em] text-2xl md:text-3xl">Sección Virología</h1>
+                        <h2 class="text-on-surface-variant font-bold text-lg tracking-tight uppercase border-l-4 border-primary/30 pl-4">Departamento de Biología Celular y Molecular</h2>
+                        <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 items-center">
+                            <div class="flex items-center gap-2 bg-emerald-900/5 px-4 py-2 rounded-lg border border-emerald-900/10">
+                                <span class="material-symbols-outlined text-primary text-sm">account_balance</span>
+                                <p class="text-on-surface-variant font-black text-[11px] uppercase tracking-widest">Instituto de Biología</p>
+                            </div>
+                            <div class="flex items-center gap-2 bg-emerald-900/5 px-4 py-2 rounded-lg border border-emerald-900/10">
+                                <span class="material-symbols-outlined text-primary text-sm">science</span>
+                                <p class="text-on-surface-variant font-black text-[11px] uppercase tracking-widest">Instituto de Química Biológica</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="mb-12">
                     <h1 class="text-6xl md:text-8xl font-headline font-black tracking-tighter text-on-background mb-8 italic">¡Bienvenid@s!</h1>
@@ -100,7 +97,7 @@
                     
                     <p class="text-2xl font-black tracking-tight text-on-background flex items-center gap-6 uppercase">
                         Búsqueda de lo invisible 
-                        <span class="material-symbols-outlined text-6xl text-primary animate-bounce">microscope</span>
+                        <span class="material-symbols-outlined text-6xl text-primary animate-bounce" style="font-variation-settings: 'FILL' 1">microscope</span>
                     </p>
                 </div>
             </div>
