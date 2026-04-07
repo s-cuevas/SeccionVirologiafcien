@@ -36,7 +36,7 @@
                 <img alt="Virología Logo" class="h-20 w-auto object-contain" src="https://raw.githubusercontent.com/s-cuevas/SeccionVirologiafcien/main/a1115b78-16f1-444c-912f-ca878fb95f46.jfif"/>
             </a>
             <div class="flex items-center gap-4">
-                <a href="index.html" class="px-5 py-2 rounded-xl bg-primary text-on-primary font-headline text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-all text-center">Salir</a>
+                <a href="index.html" class="px-5 py-2 rounded-xl bg-primary text-on-primary font-headline text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-all text-center">Salir al Sitio</a>
             </div>
         </div>
     </nav>
@@ -48,10 +48,10 @@
                 <div class="p-6 bg-white rounded-3xl border border-emerald-900/5 shadow-sm">
                     <p class="text-[10px] font-black uppercase tracking-widest text-primary mb-4">Administración</p>
                     <nav class="space-y-1">
-                        <button onclick="showSection('tutorias')" id="btn-tutorias" class="sidebar-link active w-full flex items-center gap-3 p-3 rounded-xl font-bold text-sm transition-all">
+                        <button onclick="showSection('tutorias')" id="btn-tutorias" class="sidebar-link active w-full flex items-center gap-3 p-3 rounded-xl font-bold text-sm transition-all text-left">
                             <span class="material-symbols-outlined">assignment</span> Tutorías
                         </button>
-                        <button onclick="showSection('publicaciones')" id="btn-publicaciones" class="sidebar-link w-full flex items-center gap-3 p-3 rounded-xl font-bold text-sm text-on-surface-variant hover:bg-emerald-900/5 transition-all">
+                        <button onclick="showSection('publicaciones')" id="btn-publicaciones" class="sidebar-link w-full flex items-center gap-3 p-3 rounded-xl font-bold text-sm text-on-surface-variant hover:bg-emerald-900/5 transition-all text-left">
                             <span class="material-symbols-outlined">article</span> Publicaciones
                         </button>
                     </nav>
@@ -63,40 +63,66 @@
                 <div id="section-tutorias" class="tab-content active space-y-8">
                     <header>
                         <h1 class="text-4xl font-black font-headline tracking-tighter text-primary">Gestión de Tutorías</h1>
-                        <p class="text-on-surface-variant mt-2 italic text-sm">Registro de tesis de grado, maestría y doctorado[cite: 382].</p>
+                        <p class="text-on-surface-variant mt-2 italic text-sm">Registro de tesis y pasantías bajo la supervisión del cuerpo docente[cite: 479, 543].</p>
                     </header>
 
-                    <section class="bg-white p-8 rounded-[2.5rem] border border-emerald-900/10 shadow-sm">
-                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="md:col-span-2">
-                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Título de la Tesis / Proyecto</label>
-                                <input type="text" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                    <section class="bg-white p-10 rounded-[2.5rem] border border-emerald-900/10 shadow-sm">
+                        <form class="space-y-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="md:col-span-2">
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Título de la Tesis o Pasantía</label>
+                                    <input type="text" placeholder="Ej: Estudio genético del virus Orf en Uruguay..." class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                </div>
+
+                                <div>
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Tutor/a Responsable</label>
+                                    <select class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                        <option>Dra. Adriana Delfraro</option>
+                                        <option>Dra. Sandra Frabasile</option>
+                                        <option>Dra. Mabel Berois</option>
+                                        <option>Dra. Natalia Ramos</option>
+                                        <option>Dr. Germán Botto</option>
+                                        <option>MSc. Lucía Moreira</option>
+                                        <option>Lic. María Belén Bargas</option>
+                                        <option>Lic. Santiago Cuevas</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Cotutor/a (Opcional)</label>
+                                    <select class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                        <option value="">Sin Cotutor</option>
+                                        <option>Dra. Adriana Delfraro</option>
+                                        <option>Dra. Sandra Frabasile</option>
+                                        <option>Dra. Mabel Berois</option>
+                                        <option>Dra. Natalia Ramos</option>
+                                        <option>Dr. Germán Botto</option>
+                                        <option>MSc. Lucía Moreira</option>
+                                        <option>Lic. María Belén Bargas</option>
+                                        <option>Lic. Santiago Cuevas</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Nombre del Estudiante</label>
+                                    <input type="text" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                </div>
+
+                                <div>
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Nivel Académico</label>
+                                    <select class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                        <option>Grado (Licenciatura)</option>
+                                        <option>Maestría (PEDECIBA)</option>
+                                        <option>Doctorado (PEDECIBA)</option>
+                                        <option>Pasantía de Investigación</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div>
-                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Tutor/a Responsable</label>
-                                <select class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
-                                    <option>Adriana Delfraro [cite: 12]</option>
-                                    <option>Mabel Berois [cite: 368]</option>
-                                    <option>Sandra Frabasile [cite: 478]</option>
-                                    <option>Natalia Ramos [cite: 15]</option>
-                                    <option>Santiago Mirazo [cite: 416]</option>
-                                    <option>Natalia Olivero [cite: 369]</option>
-                                    <option>Germán Botto [cite: 186]</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Cotutor/a (Opcional)</label>
-                                <select class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
-                                    <option value="">Ninguno</option>
-                                    <option>Natalia Ramos [cite: 15]</option>
-                                    <option>Sandra Frabasile [cite: 478]</option>
-                                    <option>Andrés Pizzorno [cite: 419]</option>
-                                    <option>Lucía Moreira [cite: 486]</option>
-                                    <option>Santiago Cuevas [cite: 487]</option>
-                                </select>
-                            </div>
-                            <div class="md:col-span-2 flex justify-end">
-                                <button type="submit" class="bg-primary text-white px-10 py-3 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:opacity-90 transition-all">Guardar Tutoría</button>
+
+                            <div class="pt-6 border-t border-emerald-900/5 flex justify-end">
+                                <button type="submit" class="bg-primary text-white px-12 py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:opacity-90 transition-all active:scale-95">
+                                    Registrar Tutoría
+                                </button>
                             </div>
                         </form>
                     </section>
@@ -105,29 +131,42 @@
                 <div id="section-publicaciones" class="tab-content space-y-8">
                     <header>
                         <h1 class="text-4xl font-black font-headline tracking-tighter text-primary">Gestión de Publicaciones</h1>
-                        <p class="text-on-surface-variant mt-2 italic text-sm">Actualizar el catálogo de artículos arbitrados y libros.</p>
+                        <p class="text-on-surface-variant mt-2 italic text-sm">Actualizar el catálogo científico de la Sección.</p>
                     </header>
 
-                    <section class="bg-white p-8 rounded-[2.5rem] border border-emerald-900/10 shadow-sm">
-                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="md:col-span-2">
-                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Título del Artículo</label>
-                                <input type="text" placeholder="Ej: SARS-CoV-2 genomic characterization..." class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                    <section class="bg-white p-10 rounded-[2.5rem] border border-emerald-900/10 shadow-sm">
+                        <form class="space-y-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="md:col-span-2">
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Título del Trabajo</label>
+                                    <input type="text" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                </div>
+
+                                <div class="md:col-span-2">
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Autores (Formato: Apellido N, Apellido M...)</label>
+                                    <input type="text" placeholder="Ej: Delfraro A, Botto G, Frabasile S..." class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                </div>
+
+                                <div>
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Revista o Editorial</label>
+                                    <input type="text" placeholder="Ej: Viruses / Archives of Virology" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                </div>
+
+                                <div>
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Año de Publicación</label>
+                                    <input type="number" value="2026" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                </div>
+
+                                <div class="md:col-span-2">
+                                    <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">DOI o Enlace Directo (URL)</label>
+                                    <input type="text" placeholder="https://doi.org/10.3390/v14020269" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
+                                </div>
                             </div>
-                            <div>
-                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Revista / Editorial</label>
-                                <input type="text" placeholder="Ej: Journal of Virology" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">DOI (Enlace)</label>
-                                <input type="text" placeholder="https://doi.org/..." class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-black uppercase tracking-widest text-primary mb-2">Año de Publicación</label>
-                                <input type="number" value="2026" class="w-full bg-surface border-none rounded-xl p-4 focus:ring-2 focus:ring-primary">
-                            </div>
-                            <div class="md:col-span-2 flex justify-end">
-                                <button type="submit" class="bg-primary text-white px-10 py-3 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:opacity-90 transition-all">Agregar Publicación</button>
+
+                            <div class="pt-6 border-t border-emerald-900/5 flex justify-end">
+                                <button type="submit" class="bg-primary text-white px-12 py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:opacity-90 transition-all active:scale-95">
+                                    Agregar al Catálogo
+                                </button>
                             </div>
                         </form>
                     </section>
@@ -139,15 +178,12 @@
 
     <script>
         function showSection(sectionId) {
-            // Ocultar todas las secciones
             document.querySelectorAll('.tab-content').forEach(section => {
                 section.classList.remove('active');
             });
-            // Quitar clase active de los botones
             document.querySelectorAll('.sidebar-link').forEach(btn => {
                 btn.classList.remove('active');
             });
-            // Mostrar la sección seleccionada y activar botón
             document.getElementById('section-' + sectionId).classList.add('active');
             document.getElementById('btn-' + sectionId).classList.add('active');
         }
