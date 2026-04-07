@@ -3,24 +3,42 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Integrantes | Sección Virología</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script id="tailwind-config">
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#0d631b",
-                        "surface": "#f6faf6",
-                        "on-surface-variant": "#40493d",
-                        "surface-bright": "#f6faf6",
-                    },
-                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem" }
-                }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f6faf6",
+                    "on-surface-variant": "#40493d",
+                    "primary": "#0d631b",
+                    "surface": "#f6faf6",
+                    "surface-container-low": "#f1f5f1",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#a3f69c",
+                    "on-primary-fixed-variant": "#005312",
+                    "secondary-container": "#6cf8bb",
+                    "on-secondary-container": "#00714d",
+                    "tertiary-container": "#2f7b5e",
+                    "on-tertiary-container": "#c3ffe2",
+                    "primary-container": "#2e7d32",
+                    "on-primary-container": "#cbffc2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Manrope"]
             }
+          }
         }
+      }
     </script>
     <style>
         .material-symbols-outlined {
@@ -32,169 +50,121 @@
         }
     </style>
 </head>
-<body class="bg-surface text-on-surface font-body">
+<body class="bg-surface font-body text-on-surface">
 
-    <nav class="fixed top-0 w-full z-50 glass-header shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="text-2xl font-black font-headline tracking-tighter text-primary">
-                <a href="index.html">
-                    <img alt="Virología Logo" class="h-12 w-auto object-contain" src="https://github.com/s-cuevas/SeccionVirologiafcien/blob/main/a1115b78-16f1-444c-912f-ca878fb95f46.jfif"/>
-                </a>
-            </div>
-            <div class="hidden md:flex items-center gap-8">
-                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="index.html">Inicio</a>
-                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-primary border-b-2 border-primary pb-1" href="integrantes.html">Integrantes</a>
-                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="investigacion.html">Investigación</a>
-                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="docencia.html">Docencia</a>
-                <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="publicaciones.html">Publicaciones</a>
-            </div>
-            <div class="flex items-center gap-4">
-                <button class="px-5 py-2 rounded-DEFAULT font-headline text-sm font-semibold uppercase tracking-wider text-primary hover:bg-surface-container-high transition-all active:scale-95">Login</button>
-                <a href="gestion.html" class="px-5 py-2 rounded-DEFAULT bg-primary text-on-primary font-headline text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-95 text-center">Gestión</a>
+<nav class="fixed top-0 w-full z-50 glass-header shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="text-2xl font-black font-headline tracking-tighter text-primary">
+            <img alt="Virología Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ughmE1svbDphDyiOgTwtkC12WcXTyxLycaNu9nC-yaAJSqxpzwa3YMD1iQXJpzHkUHZPwG_Qk3NBUhZ799YK0BfrCGJJA-dL7WXqypJaseUBpmhx38c8n4ZFQdMWaFLmvpZM3wov97HnX82j73OwYy55HBbFJMrNonTdKw0ToeV4IBRv5DACgb0JU3Bd-n3qhFbWlWi_cJuuFwdXZdxihd74TNyGEHBLVLU0rQe7Q_VH7nfhGjMp6cht4Yfq97hIDh0CcvynmbujA"/>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="font-headline font-semibold tracking-tight uppercase text-sm text-primary border-b-2 border-primary pb-1" href="index.html">Inicio</a>
+            <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="integrantes.html">Integrantes</a>
+            <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="investigacion.html">Investigación</a>
+            <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="docencia.html">Docencia</a>
+            <a class="font-headline font-semibold tracking-tight uppercase text-sm text-on-surface-variant/70 hover:text-on-surface transition-colors" href="publicaciones.html">Publicaciones</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="px-5 py-2 rounded-DEFAULT font-headline text-sm font-semibold uppercase tracking-wider text-primary hover:bg-surface-container-high transition-all active:scale-95">Login</button>
+            <a href="gestion.html" class="px-5 py-2 rounded-DEFAULT bg-primary text-on-primary font-headline text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-all active:scale-95">Gestión</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <section class="relative h-[600px] flex items-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0">
+            <img class="w-full h-full object-cover opacity-90 scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuQ1utEhVlLi6w6UfEOIJ9jRgLpXf3vhbVcv1tdVLaehjFNo39P-cTTHpJsKhj86975Xxvbxs1OpacnEqiXosSoTf7SCqY3b64B7hY4RJmpI78kCIagvjlNTj6ReAhG-QZgRPY2n4BOznSE1F7FUg0i9iW0FZr83c7TFgxIAKKraiPmWNF8M118ZO-U8VsYdQ2y0NBGZWlusOb7Tu0B-NzTTA8x01QQ2GrzuzjaNUli4R3bVnY41iZ5swrNTLt0ZxYEBQTP4hVCjs"/>
+            <div class="absolute inset-0 bg-gradient-to-r from-surface-bright via-surface-bright/40 to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+            <div class="max-w-2xl">
+                <span class="inline-block px-4 py-1.5 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold tracking-widest uppercase mb-6">Sección Virología</span>
+                <h1 class="text-6xl md:text-7xl font-headline font-black tracking-tighter text-on-background leading-[0.95] mb-8">
+                    La ciencia que <span class="text-primary italic">descifra</span> la vida.
+                </h1>
+                <div class="flex flex-wrap gap-4">
+                    <a href="investigacion.html" class="px-8 py-4 bg-primary text-on-primary rounded-DEFAULT font-bold text-base hover:opacity-90 transition-all">Explorar Investigación</a>
+                </div>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
-        
-        <header class="mb-16">
-            <h1 class="text-5xl font-black font-headline tracking-tighter text-primary mb-4">Nuestro Equipo</h1>
-            <p class="text-on-surface-variant max-w-2xl text-lg italic">Docentes, investigadores y estudiantes que integran la Sección Virología - Facultad de Ciencias.</p>
-        </header>
-
-        <section class="mb-24">
-            <h2 class="text-2xl font-bold font-headline mb-10 pb-2 border-b-2 border-primary/20 inline-block text-primary text-on-background">Cuerpo Docente</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <section class="py-24 bg-surface">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-emerald-900/5 flex flex-col items-center text-center group hover:shadow-md transition-all">
-                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMlWioJMd2XJiHYd56RwK8oo9C_JkHYw6e_2yo1_6JmkJScqmqB49ngJORrnh_KnrjoGbjLoF0HJruQzV-sgJcCllZQIMSLQx-pgqthcMLN3B0azazNZ9I7RS8hXZ82RrX4ardXts6Pl0B_A2tOkuQC=w1640-h923-s-no?authuser=1" class="w-32 h-32 rounded-full object-cover mb-4 ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all" alt="Adriana Delfraro">
-                    <h3 class="font-bold text-lg leading-tight text-on-background">Dra. Adriana Delfraro</h3>
-                    <p class="text-xs text-primary font-bold uppercase tracking-widest mt-2 mb-3">Prof. Agregada G4</p>
-                    <p class="text-sm text-on-surface-variant mb-4">DT Virología. Investigadora G4 PEDECIBA, Nivel II SNI.</p>
-                    <a href="https://export.cvuy.uy/cv/?2cea3cef7e10057072a9a0db33bbf439dbb44d93e21fa6020324d7fa0acca28fe4419295a8bace7f23e2125e439212223f840ff0580b0c512ea2bd3711e936cb" target="_blank" class="text-xs font-black bg-primary text-white px-4 py-1 rounded-full hover:opacity-80 transition-all">CVUy</a>
-                </div>
+                <a href="integrantes.html" class="group bg-surface-container-low p-8 rounded-lg hover:bg-primary transition-all duration-500 cursor-pointer block">
+                    <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center mb-6 group-hover:bg-on-primary/20">
+                        <span class="material-symbols-outlined text-on-primary-fixed-variant group-hover:text-on-primary">group</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-headline mb-2 group-hover:text-on-primary text-on-background">Cuerpo Docente</h3>
+                    <p class="text-sm text-on-surface-variant group-hover:text-on-primary/80">Conozca a los investigadores y académicos que lideran nuestra sección.</p>
+                </a>
 
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-emerald-900/5 flex flex-col items-center text-center group hover:shadow-md transition-all">
-                    <img src="https://lh3.googleusercontent.com/pw/AP1GczM8QQGhgjYHX3rtN-9eSE35iJ9pRhm2Of0n6VdZKUi_WV-FobyUZSnJnqHYg-9e0Q-H8DxuGPMWDCd9Ai1giKdkKqBkVJpPoYlfk5GtZLVD8kX-BKmTLPTk2hNBlEpJ7glyP1T1GV8AHripwM-DZvf7=w1640-h923-s-no?authuser=1" class="w-32 h-32 rounded-full object-cover mb-4 ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all" alt="Sandra Frabasile">
-                    <h3 class="font-bold text-lg leading-tight text-on-background">Dra. Sandra Frabasile</h3>
-                    <p class="text-xs text-primary font-bold uppercase tracking-widest mt-2 mb-3">Prof. Adjunta G3</p>
-                    <p class="text-sm text-on-surface-variant mb-4">DT Virología. Investigadora G3 PEDECIBA, Nivel I SNI.</p>
-                    <a href="https://export.cvuy.uy/cv/?f2d67b8073513445474f40af52913977101d8930465891b9fc6fc1c2fc8df410a4f3cff2ff2a8912945ac617f7e73004998ad14a2b152e068abee8eb097e36e3" target="_blank" class="text-xs font-black bg-primary text-white px-4 py-1 rounded-full hover:opacity-80 transition-all">CVUy</a>
-                </div>
+                <a href="investigacion.html" class="group bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/10 hover:bg-primary hover:translate-y-[-4px] transition-all duration-500 cursor-pointer block">
+                    <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-6 group-hover:bg-on-primary/20">
+                        <span class="material-symbols-outlined text-on-secondary-container group-hover:text-on-primary">science</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-headline mb-2 group-hover:text-on-primary text-on-background">Investigación</h3>
+                    <p class="text-sm text-on-surface-variant group-hover:text-on-primary/80">Líneas de trabajo, proyectos financiados y laboratorios especializados.</p>
+                </a>
 
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-emerald-900/5 flex flex-col items-center text-center group hover:shadow-md transition-all">
-                    <img src="https://lh3.googleusercontent.com/pw/AP1GczNfeRlxwjqBlY4HxbEOJr5XBkQSvnrkScQhmBgh9sVuFkRjrIuxX9CTjI5hqLiArvpU0J7lFPfCocm5ANXjxhptMyE0Gl5jBP2dLq1UG25XVWXIcHZTthL7pTANSn4gtEAA2aHrl1B8suX7uSgilh3E=w1640-h923-s-no?authuser=1" class="w-32 h-32 rounded-full object-cover mb-4 ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all" alt="Mabel Berois">
-                    <h3 class="font-bold text-lg leading-tight text-on-background">Dra. Mabel Berois</h3>
-                    <p class="text-xs text-primary font-bold uppercase tracking-widest mt-2 mb-3">Prof. Adjunta G3</p>
-                    <p class="text-sm text-on-surface-variant mb-4">DT Virología. Investigadora G4 PEDECIBA, Nivel I SNI.</p>
-                    <a href="https://export.cvuy.uy/cv/?c92969991381ca3d9dffe132842af32f" target="_blank" class="text-xs font-black bg-primary text-white px-4 py-1 rounded-full hover:opacity-80 transition-all">CVUy</a>
-                </div>
+                <a href="docencia.html" class="group bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/10 hover:bg-primary hover:translate-y-[-4px] transition-all duration-500 cursor-pointer block">
+                    <div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center mb-6 group-hover:bg-on-primary/20">
+                        <span class="material-symbols-outlined text-on-tertiary-container group-hover:text-on-primary">school</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-headline mb-2 group-hover:text-on-primary text-on-background">Docencia</h3>
+                    <p class="text-sm text-on-surface-variant group-hover:text-on-primary/80">Cursos de grado, posgrado y oportunidades de formación académica.</p>
+                </a>
 
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-emerald-900/5 flex flex-col items-center text-center group hover:shadow-md transition-all">
-                    <img src="https://lh3.googleusercontent.com/pw/AP1GczOFVgHWp3bPpxh3EhYbZJAXq1vYrWgfBXDihCuvhZhtyVy88jP5Zkw_KrB3nwwkbFpYdSyUKLhYolDIocXcGuB11W-wJUuz1YDN_OvkPg8na5PDugxWzSvfDUVyX8GYyUHCPnsiQFfJIxuaucZqsmwO=w554-h740-s-no?authuser=1" class="w-32 h-32 rounded-full object-cover mb-4 ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all" alt="Natalia Ramos">
-                    <h3 class="font-bold text-lg leading-tight text-on-background">Dra. Natalia Ramos</h3>
-                    <p class="text-xs text-primary font-bold uppercase tracking-widest mt-2 mb-3">Prof. Adjunta G3</p>
-                    <p class="text-sm text-on-surface-variant mb-4">DT Virología. Investigadora G3 PEDECIBA, Nivel I SNI.</p>
-                    <a href="https://export.cvuy.uy/cv/?20b64ac1aaa4a38ee2505a145b3852be896190f22e0fb5ccd13b405e9ce9bc0fe1a33b71b61849d1a181bb86203577bed1f9dfdcf4b17694a777bfd3eca43e92" target="_blank" class="text-xs font-black bg-primary text-white px-4 py-1 rounded-full hover:opacity-80 transition-all">CVUy</a>
+                <a href="publicaciones.html" class="group bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/10 hover:bg-primary hover:translate-y-[-4px] transition-all duration-500 cursor-pointer block">
+                    <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center mb-6 group-hover:bg-on-primary/20">
+                        <span class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary">article</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-headline mb-2 group-hover:text-on-primary text-on-background">Publicaciones</h3>
+                    <p class="text-sm text-on-surface-variant group-hover:text-on-primary/80">Archivo de artículos científicos y contribuciones de impacto internacional.</p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-surface overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="flex-1 relative">
+                    <div class="w-full aspect-square rounded-xl bg-surface-container-high overflow-hidden">
+                        <img class="w-full h-full object-cover mix-blend-multiply opacity-80" src="https://th.bing.com/th/id/R.a0a11d4208602e03742154a9ad34a975?rik=UdZYU5qQedKmYA&riu=http%3a%2f%2flicbq.fcien.edu.uy%2fimg%2fFachada+2.jpg&ehk=5lOp%2bSeZV%2btiAHicsBGQd8dz7aUqe5BqW1hHVCo9%2fxQ%3d&risl=&pid=ImgRaw&r=0"/>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 p-10 bg-primary rounded-lg text-on-primary max-w-xs shadow-xl">
+                        <p class="font-headline font-bold text-3xl mb-2">25+</p>
+                        <p class="text-sm opacity-80 uppercase tracking-widest font-semibold">Años de excelencia en investigación científica</p>
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-4xl font-headline font-black tracking-tight text-on-background mb-8">Nuestra Misión</h2>
+                    <p class="text-lg text-on-surface-variant leading-relaxed mb-6">
+                        La Sección Virología tiene como propósito fundamental el avance del conocimiento científico sobre los agentes virales que afectan la vida humana, animal y vegetal.
+                    </p>
+                    <p class="text-lg text-on-surface-variant leading-relaxed mb-8">
+                        A través de la integración de la investigación básica y aplicada, la formación de recursos humanos de alto nivel y el vínculo con la sociedad.
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+</main>
 
-        <section class="mb-24">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-surface-container-low p-6 rounded-lg flex flex-col items-center text-center border border-emerald-900/5">
-                    <img src="https://i1.rgstatic.net/ii/profile.image/798827208511488-1567466656465_Q512/German-Botto.jpg" class="w-24 h-24 rounded-full object-cover mb-4 grayscale hover:grayscale-0 transition-all" alt="Germán Botto">
-                    <h3 class="font-bold text-base leading-tight text-on-background">Dr. Germán Botto</h3>
-                    <p class="text-[10px] text-primary font-bold uppercase mt-2 mb-2">Asistente G2</p>
-                    <p class="text-xs text-on-surface-variant mb-4 leading-tight">Nivel I SNI</p>
-                    <a href="https://export.cvuy.uy/cvsni/?urlId=69433419ba8b69b06532d35b36927bf5687943a7a5d5cd609be6b22845fe97186df7e60d3f61eefdef67f48ec08a69e53f2824af0b1e5d439ec96c8d300ffcde&convocatoria=21&formato=html" target="_blank" class="text-[10px] font-bold text-primary border border-primary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">CVUy</a>
-                </div>
-
-                <div class="bg-surface-container-low p-6 rounded-lg flex flex-col items-center text-center border border-emerald-900/5">
-                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQE56vU8X3D1fQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1706820814374?e=2147483647&v=beta&t=vdWMAEcnkafe4AxLJKnZu76n5efoa2SsGV0RwQJfLUk" class="w-24 h-24 rounded-full object-cover mb-4 grayscale hover:grayscale-0 transition-all" alt="Lucia Moreira">
-                    <h3 class="font-bold text-base leading-tight text-on-background">MSc. Lucía Moreira</h3>
-                    <p class="text-[10px] text-primary font-bold uppercase mt-2 mb-2">Ayudante G1</p>
-                    <p class="text-xs text-on-surface-variant mb-4 leading-tight">Doctorando PEDECIBA. Coordinadora PCMU.</p>
-                    <a href="https://export.cvuy.uy/cv/?d1af861ec40a8baf8618723bab2ed092" target="_blank" class="text-[10px] font-bold text-primary border border-primary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">CVUy</a>
-                </div>
-
-                <div class="bg-surface-container-low p-6 rounded-lg flex flex-col items-center text-center border border-emerald-900/5">
-                    <img src="https://i1.rgstatic.net/ii/profile.image/11431281236678833-1713302674655_Q512/Maria-Bargas.jpg" class="w-24 h-24 rounded-full object-cover mb-4 grayscale hover:grayscale-0 transition-all" alt="Belén Bargas">
-                    <h3 class="font-bold text-base leading-tight text-on-background">Lic. María Belén Bargas</h3>
-                    <p class="text-[10px] text-primary font-bold uppercase mt-2 mb-2">Ayudante G1</p>
-                    <p class="text-xs text-on-surface-variant mb-4 leading-tight">Maestrando PEDECIBA.</p>
-                    <a href="https://export.cvuy.uy/cv/?433a74f73e317f669a82d93d2f61acd5" target="_blank" class="text-[10px] font-bold text-primary border border-primary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">CVUy</a>
-                </div>
-
-                <div class="bg-surface-container-low p-6 rounded-lg flex flex-col items-center text-center border border-emerald-900/5">
-                    <img src="https://i1.rgstatic.net/ii/profile.image/11431281181199748-1691959701156_Q512/Santiago-Cuevas-4.jpg" class="w-24 h-24 rounded-full object-cover mb-4 grayscale hover:grayscale-0 transition-all" alt="Santiago Cuevas">
-                    <h3 class="font-bold text-base leading-tight text-on-background">Lic. Santiago Cuevas</h3>
-                    <p class="text-[10px] text-primary font-bold uppercase mt-2 mb-2">Ayudante G1</p>
-                    <p class="text-xs text-on-surface-variant mb-4 leading-tight">Maestrando PEDECIBA.</p>
-                    <a href="https://export.cvuy.uy/cv/?04b760e61c5470ca0f8b854cacab9602" target="_blank" class="text-[10px] font-bold text-primary border border-primary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">CVUy</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-            <div class="bg-emerald-900 text-white p-10 rounded-lg">
-                <h3 class="text-xl font-bold mb-6 flex items-center gap-2 italic">
-                    <span class="material-symbols-outlined">school</span> Pasantes de Grado
-                </h3>
-                <ul class="text-sm space-y-3 opacity-90">
-                    <li>Bach. Bruno Rinaldi</li>
-                    <li>Bach. Juan Manuel Díaz</li>
-                    <li>Bach. Micaela Álvarez</li>
-                    <li>Bach. Mariana Díaz Ruiz</li>
-                    <li>Bach. Mauricio Cabrera</li>
-                    <li>Bach. Josefina Alejandro</li>
-                    <li>Bach. Facundo Gesto</li>
-                    <li>Bach. Guillermo Curtti</li>
-                    <li>Lic. Florencia Fadel</li>
-                </ul>
-            </div>
-            
-            <div class="bg-white p-10 rounded-lg border border-emerald-900/10 shadow-sm">
-                <h3 class="text-xl font-bold text-primary mb-6 flex items-center gap-2 italic text-on-background">
-                    <span class="material-symbols-outlined">analytics</span> Tesis Maestría
-                </h3>
-                <ul class="text-sm space-y-3 text-on-surface-variant">
-                    <li class="font-bold text-on-surface">Lic. Maria Belen Bargas</li>
-                    <li class="font-bold text-on-surface">Lic. Santiago Cuevas</li>
-                    <li class="font-bold text-on-surface">Lic. Virginia Bengochea</li>
-                </ul>
-            </div>
-
-            <div class="bg-white p-10 rounded-lg border border-emerald-900/10 shadow-sm">
-                <h3 class="text-xl font-bold text-primary mb-6 flex items-center gap-2 italic text-on-background">
-                    <span class="material-symbols-outlined">biotech</span> Tesis Doctorado
-                </h3>
-                <ul class="text-sm space-y-3 text-on-surface-variant">
-                    <li class="font-bold text-on-surface">MSc. Lucia Moreira Marrero</li>
-                    <li class="font-bold text-on-surface">MSc. Domenica De Mora</li>
-                    <li class="font-bold text-on-surface">MSc. Danilo Franco</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="bg-surface-container-low p-12 rounded-lg">
-            <h2 class="text-xl font-bold font-headline mb-8 text-primary uppercase tracking-widest text-on-background">Ex Integrantes (Docentes / Funcionarios)</h2>
-            <div class="flex flex-wrap gap-x-12 gap-y-4 text-sm font-semibold text-on-surface-variant">
-                <span>Dr. Juan Arbiza</span>
-                <span>Dr. Santiago Mirazo</span>
-                <span>Dra. Lorena Tomé</span>
-                <span>MSc. Andrea Blanc</span>
-                <span>Dra. Dora Ruchansky</span>
-                <span>MSc. María José de Sierra</span>
-                <span>Lic. Ana Maria Sanchez</span>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="py-12 border-t border-emerald-900/5 text-center text-xs font-bold text-on-surface-variant/50 uppercase tracking-widest">
-        © 2026 Sección Virología - Facultad de Ciencias - UDELAR
-    </footer>
+<footer class="w-full border-t border-emerald-900/5 bg-[#f6faf6] py-12">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="flex flex-col gap-2 text-center md:text-left">
+            <div class="font-headline font-bold text-primary text-xl">Virología</div>
+            <p class="font-body text-sm text-on-surface-variant">Facultad de Ciencias, Universidad de la República.</p>
+        </div>
+        <p class="text-xs font-body text-on-surface-variant opacity-70">© 2026 Sección Virología - Facultad de Ciencias</p>
+    </div>
+</footer>
 
 </body>
 </html>
