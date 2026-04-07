@@ -4,41 +4,27 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Gestión Interna | Sección Virología</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script id="tailwind-config">
-      tailwind.config = {
-        theme: {
-          extend: {
-            "colors": {
-                    "primary": "#0d631b",
-                    "surface": "#f6faf6",
-                    "on-surface-variant": "#40493d",
-            }
-          }
-        }
-      }
+      tailwind.config = { theme: { extend: { colors: { "primary": "#0d631b", "surface": "#f6faf6" } } } }
     </script>
     <style>
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .glass-header { background: rgba(246, 250, 246, 0.7); backdrop-filter: blur(20px); }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-        .sidebar-link.active { background: #0d631b; color: white; }
     </style>
 </head>
-<body class="bg-surface text-on-surface font-body">
+<body class="bg-surface text-slate-800 font-body">
 
-    <div id="login-container" class="fixed inset-0 z-[100] bg-emerald-900 flex items-center justify-center p-6">
-        <div class="bg-white p-10 rounded-[3rem] shadow-2xl max-w-md w-full text-center">
-            <img class="h-16 mx-auto mb-6" src="https://raw.githubusercontent.com/s-cuevas/SeccionVirologiafcien/main/a1115b78-16f1-444c-912f-ca878fb95f46.jfif" alt="Logo">
-            <h2 class="text-2xl font-black text-primary mb-2 uppercase tracking-tighter">Administración</h2>
-            <div class="space-y-4 mt-8">
-                <input type="text" id="user-field" placeholder="Usuario" class="w-full bg-surface border-none rounded-2xl p-4 text-center font-bold outline-none">
-                <input type="password" id="pass-field" placeholder="Contraseña" class="w-full bg-surface border-none rounded-2xl p-4 text-center font-bold outline-none">
-                <button onclick="attemptLogin()" class="w-full bg-primary text-white py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:opacity-90 transition-all">Entrar</button>
-            </div>
+    <div id="login-container" class="fixed inset-0 z-[100] bg-emerald-900 flex items-center justify-center p-6 text-center">
+        <div class="bg-white p-10 rounded-[3rem] shadow-2xl max-w-md w-full">
+            <h2 class="text-3xl font-black text-primary mb-6 uppercase tracking-tighter italic">Acceso Docente</h2>
+            <input type="text" id="user-field" placeholder="Usuario" class="w-full bg-slate-100 border-none rounded-2xl p-4 mb-4 text-center font-bold outline-none">
+            <input type="password" id="pass-field" placeholder="Contraseña" class="w-full bg-slate-100 border-none rounded-2xl p-4 mb-6 text-center font-bold outline-none">
+            <button onclick="attemptLogin()" class="w-full bg-primary text-white py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-lg hover:opacity-90">Entrar al Panel</button>
             <p id="auth-error" class="text-red-600 text-xs font-bold mt-4 hidden">Credenciales incorrectas.</p>
         </div>
     </div>
@@ -48,116 +34,90 @@
     <template id="admin-template">
         <nav class="fixed top-0 w-full z-50 glass-header shadow-sm h-28 flex items-center">
             <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
-                <img class="h-20" src="https://raw.githubusercontent.com/s-cuevas/SeccionVirologiafcien/main/a1115b78-16f1-444c-912f-ca878fb95f46.jfif">
-                <button onclick="processLogout()" class="px-6 py-2 rounded-xl bg-primary text-white font-bold text-sm uppercase">Salir</button>
+                <span class="text-primary font-black uppercase tracking-widest">Panel de Gestión</span>
+                <button onclick="processLogout()" class="px-6 py-2 rounded-xl bg-primary text-white font-bold text-xs uppercase">Salir</button>
             </div>
         </nav>
 
-        <main class="pt-44 pb-20 max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row gap-12">
-                <aside class="w-full md:w-64">
-                    <nav class="space-y-2">
-                        <button onclick="switchTab('publicaciones')" id="tab-publicaciones-btn" class="sidebar-link active w-full flex items-center gap-3 p-4 rounded-2xl font-bold text-sm">
-                            <span class="material-symbols-outlined">article</span> Publicaciones
-                        </button>
-                        <button class="w-full flex items-center gap-3 p-4 rounded-2xl font-bold text-sm text-gray-400 cursor-not-allowed">
-                            <span class="material-symbols-outlined">assignment</span> Tutorías (Próximamente)
-                        </button>
-                    </nav>
-                </aside>
-
-                <div class="flex-grow">
-                    <div id="view-publicaciones" class="tab-content active">
-                        <h1 class="text-4xl font-black text-primary mb-8 uppercase tracking-tighter">Nueva Publicación</h1>
-                        <form onsubmit="guardarPublicacion(event)" class="bg-white p-10 rounded-[3rem] border border-emerald-900/10 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="md:col-span-2">
-                                <label class="text-[10px] font-black uppercase text-primary mb-2 block">Autores (Apellido N, Apellido M...)</label>
-                                <input type="text" required name="autores" class="w-full bg-surface border-none rounded-xl p-4">
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="text-[10px] font-black uppercase text-primary mb-2 block">Título del Trabajo</label>
-                                <input type="text" required name="titulo" class="w-full bg-surface border-none rounded-xl p-4">
-                            </div>
-                            <div>
-                                <label class="text-[10px] font-black uppercase text-primary mb-2 block">Revista / Editorial</label>
-                                <input type="text" required name="revista" class="w-full bg-surface border-none rounded-xl p-4">
-                            </div>
-                            <div>
-                                <label class="text-[10px] font-black uppercase text-primary mb-2 block">Año</label>
-                                <input type="number" required name="anio" value="2026" class="w-full bg-surface border-none rounded-xl p-4">
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="text-[10px] font-black uppercase text-primary mb-2 block">Enlace DOI o URL</label>
-                                <input type="url" required name="enlace" placeholder="https://doi.org/..." class="w-full bg-surface border-none rounded-xl p-4">
-                            </div>
-                            <div class="md:col-span-2 flex justify-end">
-                                <button type="submit" id="btn-submit" class="bg-primary text-white px-12 py-4 rounded-full font-black uppercase text-xs tracking-widest shadow-lg">Agregar al Catálogo</button>
-                            </div>
-                        </form>
+        <main class="pt-44 pb-20 max-w-4xl mx-auto px-6">
+            <h1 class="text-5xl font-black text-primary mb-12 uppercase tracking-tighter italic">Nueva Publicación</h1>
+            
+            <form onsubmit="enviarAlSheet(event)" class="bg-white p-10 rounded-[3rem] border border-emerald-900/10 shadow-sm space-y-6">
+                <div>
+                    <label class="text-[10px] font-black uppercase text-primary tracking-widest mb-2 block">Autores</label>
+                    <input type="text" name="autores" required placeholder="Ej: Delfraro A, Botto G, Arbiza J..." class="w-full bg-slate-50 border-none rounded-xl p-4">
+                </div>
+                <div>
+                    <label class="text-[10px] font-black uppercase text-primary tracking-widest mb-2 block">Título del Trabajo</label>
+                    <input type="text" name="titulo" required class="w-full bg-slate-50 border-none rounded-xl p-4">
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-[10px] font-black uppercase text-primary tracking-widest mb-2 block">Revista / Editorial</label>
+                        <input type="text" name="revista" required class="w-full bg-slate-50 border-none rounded-xl p-4">
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-black uppercase text-primary tracking-widest mb-2 block">Año</label>
+                        <input type="number" name="anio" value="2026" required class="w-full bg-slate-50 border-none rounded-xl p-4">
                     </div>
                 </div>
-            </div>
+                <div>
+                    <label class="text-[10px] font-black uppercase text-primary tracking-widest mb-2 block">Enlace DOI o URL</label>
+                    <input type="url" name="enlace" required placeholder="https://doi.org/..." class="w-full bg-slate-50 border-none rounded-xl p-4">
+                </div>
+                <div class="pt-4">
+                    <button type="submit" id="btn-submit" class="w-full bg-primary text-white py-5 rounded-full font-black uppercase text-xs tracking-widest shadow-xl hover:scale-[1.02] transition-transform">
+                        Publicar en la Web
+                    </button>
+                </div>
+            </form>
         </main>
     </template>
 
     <script>
         const AUTH = { user: "virologia", pass: "fcien2026" };
-        const APPS_SCRIPT_URL = 'TU_URL_DE_APPS_SCRIPT_AQUI'; // <--- PEGA TU URL AQUÍ
-
-        window.onload = () => { if (sessionStorage.getItem('fcien_auth') === 'active') renderDashboard(); };
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby8fLW2Q3BeJLhgXhj2SFJ_rAN5ayaR-MIu42XL8EmYHbhi7_2bIhwaXAmNwHPfS1Dj/exec';
 
         function attemptLogin() {
             const u = document.getElementById('user-field').value;
             const p = document.getElementById('pass-field').value;
             if (u === AUTH.user && p === AUTH.pass) {
-                sessionStorage.setItem('fcien_auth', 'active');
+                sessionStorage.setItem('viro_auth', 'true');
                 renderDashboard();
-            } else {
-                document.getElementById('auth-error').classList.remove('hidden');
-            }
+            } else { document.getElementById('auth-error').classList.remove('hidden'); }
         }
 
         function renderDashboard() {
             const clone = document.getElementById('admin-template').content.cloneNode(true);
             document.getElementById('login-container').style.display = 'none';
+            document.getElementById('main-content').innerHTML = '';
             document.getElementById('main-content').appendChild(clone);
         }
 
-        async function guardarPublicacion(event) {
-            event.preventDefault();
+        async function enviarAlSheet(e) {
+            e.preventDefault();
             const btn = document.getElementById('btn-submit');
-            btn.innerText = "Procesando...";
+            btn.innerText = "PROCESANDO...";
             btn.disabled = true;
 
-            const form = event.target;
             const datos = {
-                autores: form.autores.value,
-                titulo: form.titulo.value,
-                revista: form.revista.value,
-                anio: form.anio.value,
-                enlace: form.enlace.value
+                autores: e.target.autores.value,
+                titulo: e.target.titulo.value,
+                revista: e.target.revista.value,
+                anio: e.target.anio.value,
+                enlace: e.target.enlace.value
             };
 
             try {
-                // Enviamos los datos al Script de Google
-                await fetch(APPS_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: JSON.stringify(datos)
-                });
-                
-                alert("¡Publicación agregada con éxito!");
-                form.reset();
-            } catch (error) {
-                alert("Hubo un problema con la conexión.");
-            } finally {
-                btn.innerText = "Agregar al Catálogo";
-                btn.disabled = false;
-            }
+                await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(datos) });
+                alert("¡Publicación agregada con éxito al Google Sheet!");
+                e.target.reset();
+            } catch (err) { alert("Error de conexión."); }
+            finally { btn.innerText = "PUBLICAR EN LA WEB"; btn.disabled = false; }
         }
 
         function processLogout() { sessionStorage.clear(); window.location.reload(); }
-        function switchTab(tabId) { /* Lógica para cambiar pestañas */ }
+        window.onload = () => { if (sessionStorage.getItem('viro_auth') === 'true') renderDashboard(); };
     </script>
 </body>
 </html>
