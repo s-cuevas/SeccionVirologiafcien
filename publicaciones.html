@@ -6,67 +6,116 @@
     <title>Publicaciones | Sección Virología</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"/>
     <style>
         .glass-header { background: rgba(246, 250, 246, 0.8); backdrop-filter: blur(20px); }
-        .pub-card { transition: all 0.3s ease; border-left: 0px solid #0d631b; }
-        .pub-card:hover { transform: translateX(10px); border-left-width: 8px; }
+        .pub-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border-left: 0px solid #0d631b; }
+        .pub-card:hover { transform: translateX(12px); border-left-width: 10px; shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+        body { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="bg-[#f6faf6] font-body text-slate-800">
 
     <nav class="fixed top-0 w-full z-50 glass-header shadow-sm h-28 flex items-center">
         <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
-            <a href="index.html"><img class="h-20" src="https://raw.githubusercontent.com/s-cuevas/SeccionVirologiafcien/main/a1115b78-16f1-444c-912f-ca878fb95f46.jfif"></a>
-            <div class="flex gap-8 uppercase font-bold text-xs tracking-widest">
-                <a href="index.html" class="hover:text-emerald-800">Inicio</a>
-                <a href="publicaciones.html" class="text-emerald-700 underline decoration-2 underline-offset-8">Publicaciones</a>
+            <a href="index.html">
+                <img class="h-20 object-contain" src="https://raw.githubusercontent.com/s-cuevas/SeccionVirologiafcien/main/a1115b78-16f1-444c-912f-ca878fb95f46.jfif" alt="Logo Virología">
+            </a>
+            <div class="flex gap-10 uppercase font-black text-[11px] tracking-[0.2em] items-center">
+                <a href="index.html" class="text-slate-400 hover:text-emerald-800 transition-colors">Inicio</a>
+                <a href="publicaciones.html" class="text-emerald-700 border-b-2 border-emerald-700 pb-1">Publicaciones</a>
+                <a href="gestion.html" class="bg-emerald-900 text-white px-5 py-2 rounded-full hover:bg-emerald-800 transition-all">Gestión</a>
             </div>
         </div>
     </nav>
 
-    <main class="pt-44 pb-20 max-w-5xl mx-auto px-6">
-        <h1 class="text-6xl font-black text-emerald-900 mb-2 tracking-tighter uppercase italic">Publicaciones</h1>
-        <p class="text-xl text-emerald-800/40 font-bold mb-16 uppercase tracking-widest">Catálogo Científico</p>
+    <main class="pt-44 pb-24 max-w-5xl mx-auto px-6">
+        <header class="mb-20">
+            <h1 class="text-7xl font-black text-emerald-900 mb-4 tracking-tighter uppercase italic">Publicaciones</h1>
+            <div class="h-1 w-32 bg-emerald-700 mb-6"></div>
+            <p class="text-xl text-emerald-800/60 font-medium max-w-2xl leading-relaxed">
+                Producción científica internacional de la Sección Virología, Facultad de Ciencias (UdelaR).
+            </p>
+        </header>
 
-        <div id="lista-publicaciones" class="space-y-6">
-            <div class="animate-pulse text-emerald-800 font-bold italic">Consultando base de datos de la virosfera...</div>
+        <div id="lista-publicaciones" class="space-y-8">
+            <div class="flex items-center gap-4 text-emerald-800 font-bold italic animate-pulse">
+                <span class="material-symbols-outlined animate-spin">sync</span>
+                Sincronizando con el catálogo científico...
+            </div>
         </div>
     </main>
 
+    <footer class="py-16 bg-white border-t border-emerald-900/5 text-center">
+        <p class="text-[10px] font-black text-slate-300 uppercase tracking-[0.5em]">
+            © 2026 Sección Virología - Facultad de Ciencias - UDELAR
+        </p>
+    </footer>
+
     <script>
+        // CONFIGURACIÓN DE LA BASE DE DATOS
         const SHEET_ID = '1TBEC54I_bJrKx2P99M-0ghOMDAl1DizcElm1_NB947E';
         const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
 
         fetch(URL)
             .then(res => res.text())
             .then(data => {
-                const json = JSON.parse(data.substr(47).slice(0, -2));
-                const rows = json.table.rows;
+                // Limpieza del JSON que entrega Google
+                const temp = data.substring(data.indexOf("(") + 1, data.lastIndexOf(")"));
+                const json = JSON.parse(temp);
                 const container = document.getElementById('lista-publicaciones');
+                
+                // Mapeo y limpieza de datos
+                let publicaciones = json.table.rows.slice(1).map(row => ({
+                    autores: row.c[0] ? row.c[0].v : 'Autores no especificados',
+                    titulo: row.c[1] ? row.c[1].v : 'Título no disponible',
+                    revista: row.c[2] ? row.c[2].v : 'N/A',
+                    anio: row.c[3] ? parseInt(row.c[3].v) : 0,
+                    enlace: row.c[4] ? row.c[4].v : '#'
+                })).filter(p => p.titulo !== 'Título no disponible'); // Evita filas vacías
+
+                // ORDENAR POR AÑO (DESCENDENTE)
+                publicaciones.sort((a, b) => b.anio - a.anio);
+
+                if (publicaciones.length === 0) {
+                    container.innerHTML = `
+                        <div class="text-center py-20 bg-white rounded-[3rem] border border-dashed border-emerald-200">
+                            <p class="text-slate-400 font-bold uppercase tracking-widest text-xs">No se encontraron registros en el catálogo.</p>
+                        </div>`;
+                    return;
+                }
+
                 container.innerHTML = '';
-
-                // Mostramos las filas (saltamos la primera si es el encabezado)
-                rows.slice(1).reverse().forEach(row => {
-                    const autores = row.c[0]?.v || '';
-                    const titulo = row.c[1]?.v || '';
-                    const revista = row.c[2]?.v || '';
-                    const anio = row.c[3]?.v || '';
-                    const enlace = row.c[4]?.v || '#';
-
+                
+                // RENDERIZADO DE TARJETAS
+                publicaciones.forEach(pub => {
                     container.innerHTML += `
-                        <div class="pub-card bg-white p-10 rounded-[2.5rem] shadow-sm border border-emerald-900/5">
-                            <p class="text-emerald-700 font-black text-[10px] uppercase tracking-[0.2em] mb-3">${autores}</p>
-                            <h3 class="text-2xl font-black text-slate-900 leading-tight mb-4">${titulo}</h3>
-                            <div class="flex justify-between items-end">
-                                <p class="text-slate-400 italic text-sm font-medium">${revista} — ${anio}</p>
-                                <a href="${enlace}" target="_blank" class="bg-emerald-900 text-white px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:opacity-80 transition-all">DOI / Link</a>
+                        <article class="pub-card bg-white p-10 rounded-[2.5rem] shadow-sm border border-emerald-900/5">
+                            <div class="flex flex-col md:flex-row justify-between items-start gap-6">
+                                <div class="flex-grow">
+                                    <p class="text-emerald-700 font-black text-[10px] uppercase tracking-[0.2em] mb-4">${pub.autores}</p>
+                                    <h3 class="text-2xl font-black text-slate-900 leading-tight mb-6 hover:text-emerald-800 transition-colors">${pub.titulo}</h3>
+                                    <div class="flex items-center gap-2 text-slate-400">
+                                        <span class="material-symbols-outlined text-sm">menu_book</span>
+                                        <p class="italic text-sm font-medium">${pub.revista} <span class="mx-2 text-emerald-200 text-xs">●</span> ${pub.anio}</p>
+                                    </div>
+                                </div>
+                                <div class="flex-shrink-0">
+                                    <a href="${pub.enlace}" target="_blank" class="inline-flex items-center justify-center bg-emerald-900 text-white w-14 h-14 rounded-full shadow-lg hover:bg-emerald-700 hover:scale-110 transition-all group">
+                                        <span class="material-symbols-outlined group-hover:rotate-45 transition-transform">arrow_outward</span>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        </article>
                     `;
                 });
             })
-            .catch(() => {
-                document.getElementById('lista-publicaciones').innerHTML = "Error al conectar con la base de datos.";
+            .catch(err => {
+                console.error("Error de conexión con Google Sheets:", err);
+                document.getElementById('lista-publicaciones').innerHTML = `
+                    <div class="p-8 bg-red-50 text-red-700 rounded-2xl border border-red-100 font-bold">
+                        Error al conectar con la base de datos. Por favor, intente más tarde.
+                    </div>`;
             });
     </script>
 </body>
